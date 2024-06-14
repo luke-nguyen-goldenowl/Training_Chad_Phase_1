@@ -5,7 +5,7 @@ void exercise1() {
   while (true) {
     stdout.write('\n\nExercise 1');
     stdout.write('\nEnter the size of the square: ');
-    size = int.parse(stdin.readLineSync()!);
+    size = int.tryParse(stdin.readLineSync()!) ?? 0;
     if (size < 1) {
       stdout.write('Please enter a valid value!');
     } else {
