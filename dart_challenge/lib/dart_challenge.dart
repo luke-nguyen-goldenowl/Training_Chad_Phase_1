@@ -51,7 +51,9 @@ void runMenu() {
         }
         stdout.write('\n');
       case 3:
+        break;
       case 4:
+        break;
       case 5:
         String password;
         while (true) {
