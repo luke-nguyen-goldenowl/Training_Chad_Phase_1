@@ -1,11 +1,13 @@
 import 'dart:io';
 import 'package:dart_challenge/exercise_1/exercise_1.dart';
+import 'package:dart_challenge/unit_test_2/unit_test_2.dart';
 
 void runMenu() {
   bool run = true;
   while (run) {
     stdout.write('\n\nDART CHALLENGES MENU\n');
     stdout.write('1. Exercise 1\n');
+    stdout.write('3. Unit Test 2\n');
     stdout.write('0. Exit\n');
 
     int chooseNumber;
@@ -14,7 +16,7 @@ void runMenu() {
 
       chooseNumber = int.tryParse(stdin.readLineSync()!) ?? 0;
 
-      if (chooseNumber > 1 || chooseNumber < 0) {
+      if (chooseNumber > 3 || chooseNumber < 0) {
         stdout.write('Please enter again(choose 0 - 1)');
       } else {
         break;
@@ -28,8 +30,20 @@ void runMenu() {
       case 1:
         exercise1();
         break;
+      case 2:
+        break;
+      case 3:
+        List<int> a = [1, 1, 2, 3, 5, 8, 89, 13, 21, 34, 55];
+        List<int> b = [1, 2, 3, 4, 5, 6, 10, 7, 8, 9, 11, 12, 13];
+
+        List<int> res = unitTest2(a, b);
+        stdout.write('Result: ');
+        for (int i = 0; i < res.length; i++) {
+          stdout.write('${res[i]} ');
+        }
+        stdout.write('\n');
       default:
-        stdout.write('Please enter again(choose 0 - 1)');
+        stdout.write('Please enter again(choose 0 - 3)');
     }
     if (run) {
       int exit;
