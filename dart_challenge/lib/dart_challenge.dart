@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dart_challenge/exercise_1/exercise_1.dart';
+import 'package:dart_challenge/game_3/game_3.dart';
 import 'package:dart_challenge/game_4/game_4.dart';
 import 'package:dart_challenge/game_2/game_2.dart';
 import 'package:dart_challenge/game_1/game_1.dart';
@@ -19,6 +20,7 @@ void runMenu() {
     stdout.write('5. Unit Test 4\n');
     stdout.write('6. Game 1\n');
     stdout.write('7. Game 2\n');
+    stdout.write('8. Game 3\n');
     stdout.write('9. Game 4\n');
     stdout.write('0. Exit\n');
 
@@ -134,6 +136,8 @@ void runMenu() {
         game1();
       case 7:
         game2();
+      case 8:
+        game3();
       case 9:
         game4();
       default:
