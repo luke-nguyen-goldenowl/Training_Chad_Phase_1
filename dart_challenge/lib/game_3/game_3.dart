@@ -37,17 +37,13 @@ int countBulls(String secretNumber, String guess) {
 void game3() {
   bool run = true;
   String randomNumber;
-  List<int> digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   while (run) {
     stdout.write(
         '\nWelcome to Cows and Bulls Game. \nType \'exit\' to stop the game\n');
     int attempts = 0, cows = 0, bulls = 0;
 
-    do {
-      digits.shuffle(Random());
-      randomNumber = digits.sublist(0, 4).join();
-    } while (randomNumber.startsWith('0'));
+    randomNumber = (Random().nextInt(9000) + 1000).toString();
 
     while (cows != 4) {
       stdout.write('\nPlease choose a four digit number: ');
