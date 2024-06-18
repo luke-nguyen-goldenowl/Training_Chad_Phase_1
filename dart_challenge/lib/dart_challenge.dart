@@ -6,6 +6,7 @@ import 'package:dart_challenge/game_1/game_1.dart';
 import 'package:dart_challenge/unit_test_1/unit_test_1.dart';
 import 'package:dart_challenge/unit_test_2/unit_test_2.dart';
 import 'package:dart_challenge/unit_test_3/unit_test_3.dart';
+import 'package:dart_challenge/unit_test_4/unit_test_4.dart';
 
 void runMenu() {
   bool run = true;
@@ -15,6 +16,7 @@ void runMenu() {
     stdout.write('2. Unit Test 1\n');
     stdout.write('3. Unit Test 2\n');
     stdout.write('4. Unit Test 3\n');
+    stdout.write('5. Unit Test 4\n');
     stdout.write('6. Game 1\n');
     stdout.write('7. Game 2\n');
     stdout.write('9. Game 4\n');
@@ -115,6 +117,19 @@ void runMenu() {
           }
         }
         stdout.write('\nResult: ${unitTest3(number)}\n');
+      case 5:
+        String password;
+        while (true) {
+          stdout.write('\n\nUnit Test 4');
+          stdout.write('\nEnter the password: ');
+          password = stdin.readLineSync() ?? '';
+          if (password.isEmpty) {
+            stdout.write('Please enter a valid value!');
+          } else {
+            break;
+          }
+        }
+        stdout.write('\nResult: ${unitTest4(password)}\n');
       case 6:
         game1();
       case 7:
