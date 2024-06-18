@@ -4,6 +4,7 @@ import 'package:dart_challenge/game_4/game_4.dart';
 import 'package:dart_challenge/game_2/game_2.dart';
 import 'package:dart_challenge/game_1/game_1.dart';
 import 'package:dart_challenge/unit_test_1/unit_test_1.dart';
+import 'package:dart_challenge/unit_test_2/unit_test_2.dart';
 import 'package:dart_challenge/unit_test_3/unit_test_3.dart';
 
 void runMenu() {
@@ -12,6 +13,7 @@ void runMenu() {
     stdout.write('\n\nDART CHALLENGES MENU\n');
     stdout.write('1. Exercise 1\n');
     stdout.write('2. Unit Test 1\n');
+    stdout.write('3. Unit Test 2\n');
     stdout.write('4. Unit Test 3\n');
     stdout.write('6. Game 1\n');
     stdout.write('7. Game 2\n');
@@ -57,7 +59,49 @@ void runMenu() {
         }
         stdout.write('\n');
       case 3:
-        break;
+        stdout.write('\n\nUnit Test 2\n');
+        stdout.write('\nEnter list 1. Type \'exit\' to stop\n');
+
+        List<int> a = [];
+        while (true) {
+          stdout.write('\nEnter a number: ');
+          String input = stdin.readLineSync()!;
+          if (input.toLowerCase() == 'exit') {
+            break;
+          }
+          if (int.tryParse(input) == null) {
+            stdout.write('Please enter a valid value!\n');
+            continue;
+          }
+          int number = int.tryParse(input) ?? 0;
+          a.add(number);
+        }
+
+        stdout.write('\nEnter list 2. Type \'exit\' to stop\n');
+        List<int> b = [];
+        while (true) {
+          stdout.write('\nEnter a number: ');
+          String input = stdin.readLineSync()!;
+          if (input.toLowerCase() == 'exit') {
+            break;
+          }
+          if (int.tryParse(input) == null) {
+            stdout.write('Please enter a valid value!\n');
+            continue;
+          }
+          int number = int.tryParse(input) ?? 0;
+          b.add(number);
+        }
+
+        stdout.write('\nList 1: [${a.join(', ')}]');
+        stdout.write('\nList 2: [${b.join(', ')}]');
+
+        List<int> res = unitTest2(a, b);
+        stdout.write('\n\nRESULT: ');
+        for (int i = 0; i < res.length; i++) {
+          stdout.write('${res[i]} ');
+        }
+        stdout.write('\n');
       case 4:
         int number;
         while (true) {
