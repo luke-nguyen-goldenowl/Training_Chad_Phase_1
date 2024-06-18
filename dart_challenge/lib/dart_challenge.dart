@@ -51,11 +51,45 @@ void runMenu() {
         }
         stdout.write('\n');
       case 3:
-        List<int> a = [1, 1, 2, 3, 5, 8, 89, 13, 21, 34, 55];
-        List<int> b = [1, 2, 3, 4, 5, 6, 10, 7, 8, 9, 11, 12, 13];
+        stdout.write('\n\nUnit Test 2\n');
+        stdout.write('\nEnter list 1. Type \'exit\' to stop\n');
+
+        List<int> a = [];
+        while (true) {
+          stdout.write('\nEnter a number: ');
+          String input = stdin.readLineSync()!;
+          if (input.toLowerCase() == 'exit') {
+            break;
+          }
+          if (int.tryParse(input) == null) {
+            stdout.write('Please enter a valid value!\n');
+            continue;
+          }
+          int number = int.tryParse(input) ?? 0;
+          a.add(number);
+        }
+
+        stdout.write('\nEnter list 2. Type \'exit\' to stop\n');
+        List<int> b = [];
+        while (true) {
+          stdout.write('\nEnter a number: ');
+          String input = stdin.readLineSync()!;
+          if (input.toLowerCase() == 'exit') {
+            break;
+          }
+          if (int.tryParse(input) == null) {
+            stdout.write('Please enter a valid value!\n');
+            continue;
+          }
+          int number = int.tryParse(input) ?? 0;
+          b.add(number);
+        }
+
+        stdout.write('\nList 1: [${a.join(', ')}]');
+        stdout.write('\nList 2: [${b.join(', ')}]');
 
         List<int> res = unitTest2(a, b);
-        stdout.write('Result: ');
+        stdout.write('\n\nRESULT: ');
         for (int i = 0; i < res.length; i++) {
           stdout.write('${res[i]} ');
         }
