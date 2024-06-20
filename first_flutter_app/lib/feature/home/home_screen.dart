@@ -1,5 +1,5 @@
-import 'package:first_flutter_app/modules/dashboard/screens/home_screen/favorite_screen/favorite_screen.dart';
-import 'package:first_flutter_app/modules/dashboard/screens/home_screen/generator_screen/generator_screen.dart';
+import 'package:first_flutter_app/feature/home/favorite_screen/favorite_screen.dart';
+import 'package:first_flutter_app/feature/home/generator_screen/generator_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {

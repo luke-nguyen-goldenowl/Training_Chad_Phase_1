@@ -1,5 +1,5 @@
-import 'package:first_flutter_app/modules/dashboard/cubit/app_cubit.dart';
-import 'package:first_flutter_app/widgets/big_card.dart';
+import 'package:first_flutter_app/feature/home/cubit/app_cubit.dart';
+import 'package:first_flutter_app/feature/home/widgets/big_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
