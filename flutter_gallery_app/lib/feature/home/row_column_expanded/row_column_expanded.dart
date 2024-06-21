@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class RowColumnExpanded extends StatefulWidget {
   const RowColumnExpanded({Key? key}) : super(key: key);
@@ -21,6 +22,20 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
   VerticalDirection verticalDirection = VerticalDirection.down;
   TextDirection textDirection = TextDirection.ltr;
   TextBaseline textBaseline = TextBaseline.alphabetic;
+
+  List<String> mainAxisSizeList = ['min', 'max'];
+  List<String> mainAxisAlignmentList = [
+    'center',
+    'end',
+    'spaceAround',
+    'spaceBetween',
+    'spaceEvenly',
+    'start'
+  ];
+  List<String> crossAxisAlignmentList = ['center', 'end', 'start'];
+  List<String> verticalDirectionList = ['down', 'up'];
+  List<String> textDirectionList = ['ltr', 'rtl'];
+  List<String> textBaselineList = ['alphabetic', 'ideographic'];
 
   @override
   Widget build(BuildContext context) {
@@ -94,29 +109,36 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
         children: [
           Expanded(
               flex: 5,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    color: Colors.yellow,
-                    child: rowColumnOption == 1
-                        ? Row(
-                            mainAxisSize: mainAxisSize,
-                            mainAxisAlignment: mainAxisAlignment,
-                            crossAxisAlignment: crossAxisAlignment,
-                            verticalDirection: verticalDirection,
-                            textDirection: textDirection,
-                            textBaseline: textBaseline,
-                            children: [
-                              Image.asset('assets/icons/row_column_icon.png',
-                                  width: 50, height: 50),
-                              Image.asset('assets/icons/row_column_icon.png',
-                                  width: 100, height: 100),
-                              Image.asset('assets/icons/row_column_icon.png',
-                                  width: 50, height: 50),
-                            ],
-                          )
-                        : Column(
+              child: rowColumnOption == 1
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                            color: Colors.yellow,
+                            child: Row(
+                              mainAxisSize: mainAxisSize,
+                              mainAxisAlignment: mainAxisAlignment,
+                              crossAxisAlignment: crossAxisAlignment,
+                              verticalDirection: verticalDirection,
+                              textDirection: textDirection,
+                              textBaseline: textBaseline,
+                              children: [
+                                Image.asset('assets/icons/row_column_icon.png',
+                                    width: 50, height: 50),
+                                Image.asset('assets/icons/row_column_icon.png',
+                                    width: 100, height: 100),
+                                Image.asset('assets/icons/row_column_icon.png',
+                                    width: 50, height: 50),
+                              ],
+                            )),
+                      ],
+                    )
+                  : Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          color: Colors.yellow,
+                          child: Column(
                             mainAxisSize: mainAxisSize,
                             mainAxisAlignment: mainAxisAlignment,
                             crossAxisAlignment: crossAxisAlignment,
@@ -132,9 +154,9 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                                   width: 50, height: 50),
                             ],
                           ),
-                  )
-                ],
-              )),
+                        ),
+                      ],
+                    )),
           Expanded(
               flex: 4,
               child: Container(
@@ -193,16 +215,14 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                           Text('mainAxisSize', style: textTheme.labelMedium),
                           DropdownButton<int>(
                             value: mainAxisSizeOption,
-                            items: const [
-                              DropdownMenuItem(
-                                value: 1,
-                                child: Text('min'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2,
-                                child: Text('max'),
-                              ),
-                            ],
+                            items: mainAxisSizeList
+                                .asMap()
+                                .entries
+                                .map((entry) => DropdownMenuItem<int>(
+                                      value: entry.key + 1,
+                                      child: Text(entry.value),
+                                    ))
+                                .toList(),
                             onChanged: (value) {
                               setState(() {
                                 mainAxisSizeOption = value ?? 0;
@@ -218,32 +238,14 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                               style: textTheme.labelMedium),
                           DropdownButton<int>(
                             value: mainAxisAlignmentOption,
-                            items: const [
-                              DropdownMenuItem(
-                                value: 1,
-                                child: Text('center'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2,
-                                child: Text('end'),
-                              ),
-                              DropdownMenuItem(
-                                value: 3,
-                                child: Text('spaceAround'),
-                              ),
-                              DropdownMenuItem(
-                                value: 4,
-                                child: Text('spaceBetween'),
-                              ),
-                              DropdownMenuItem(
-                                value: 5,
-                                child: Text('spaceEvenly'),
-                              ),
-                              DropdownMenuItem(
-                                value: 6,
-                                child: Text('start'),
-                              ),
-                            ],
+                            items: mainAxisAlignmentList
+                                .asMap()
+                                .entries
+                                .map((entry) => DropdownMenuItem<int>(
+                                      value: entry.key + 1,
+                                      child: Text(entry.value),
+                                    ))
+                                .toList(),
                             onChanged: (value) {
                               setState(() {
                                 mainAxisAlignmentOption = value ?? 0;
@@ -259,20 +261,14 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                               style: textTheme.labelMedium),
                           DropdownButton<int>(
                             value: crossAxisAlignmentOption,
-                            items: const [
-                              DropdownMenuItem(
-                                value: 1,
-                                child: Text('center'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2,
-                                child: Text('end'),
-                              ),
-                              DropdownMenuItem(
-                                value: 3,
-                                child: Text('start'),
-                              ),
-                            ],
+                            items: crossAxisAlignmentList
+                                .asMap()
+                                .entries
+                                .map((entry) => DropdownMenuItem<int>(
+                                      value: entry.key + 1,
+                                      child: Text(entry.value),
+                                    ))
+                                .toList(),
                             onChanged: (value) {
                               setState(() {
                                 crossAxisAlignmentOption = value ?? 0;
@@ -288,16 +284,14 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                               style: textTheme.labelMedium),
                           DropdownButton<int>(
                             value: verticalDirectionOption,
-                            items: const [
-                              DropdownMenuItem(
-                                value: 1,
-                                child: Text('down'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2,
-                                child: Text('up'),
-                              ),
-                            ],
+                            items: verticalDirectionList
+                                .asMap()
+                                .entries
+                                .map((entry) => DropdownMenuItem<int>(
+                                      value: entry.key + 1,
+                                      child: Text(entry.value),
+                                    ))
+                                .toList(),
                             onChanged: (value) {
                               setState(() {
                                 verticalDirectionOption = value ?? 0;
@@ -312,16 +306,14 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                           Text('textDirection', style: textTheme.labelMedium),
                           DropdownButton<int>(
                             value: textDirectionOption,
-                            items: const [
-                              DropdownMenuItem(
-                                value: 1,
-                                child: Text('ltr'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2,
-                                child: Text('rtl'),
-                              ),
-                            ],
+                            items: textDirectionList
+                                .asMap()
+                                .entries
+                                .map((entry) => DropdownMenuItem<int>(
+                                      value: entry.key + 1,
+                                      child: Text(entry.value),
+                                    ))
+                                .toList(),
                             onChanged: (value) {
                               setState(() {
                                 textDirectionOption = value ?? 0;
@@ -337,16 +329,14 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                           Text('textBaseline', style: textTheme.labelMedium),
                           DropdownButton<int>(
                             value: textBaselineOption,
-                            items: const [
-                              DropdownMenuItem(
-                                value: 1,
-                                child: Text('alphabetic'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2,
-                                child: Text('idelgraphic'),
-                              ),
-                            ],
+                            items: textBaselineList
+                                .asMap()
+                                .entries
+                                .map((entry) => DropdownMenuItem<int>(
+                                      value: entry.key + 1,
+                                      child: Text(entry.value),
+                                    ))
+                                .toList(),
                             onChanged: (value) {
                               setState(() {
                                 textBaselineOption = value ?? 0;
