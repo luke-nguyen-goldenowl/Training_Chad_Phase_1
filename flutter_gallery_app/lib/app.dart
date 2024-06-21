@@ -11,7 +11,14 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff2196F3)),
-          useMaterial3: true,
+          useMaterial3: false,
+          textTheme: const TextTheme(
+            labelMedium: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.w500,
+              color: Color.fromARGB(255, 50, 50, 50),
+            ),
+          ),
         ),
         home: const HomeScreen());
   }

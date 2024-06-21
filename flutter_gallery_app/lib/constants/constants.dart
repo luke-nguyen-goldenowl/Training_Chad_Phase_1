@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/container_screen/container_screen.dart';
 
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
@@ -82,7 +83,7 @@ class Constants {
       'leading': Icons.check_box_outline_blank_sharp,
       'title': 'Container - Decoration',
       'subtitle': 'A widget that positions its children relative to its edges',
-      'page': Placeholder()
+      'page': ContainerScreen()
     },
     {
       'leading': Icons.image,
@@ -102,5 +103,50 @@ class Constants {
       'subtitle': 'A widget that positions its children relative to its edges',
       'page': Placeholder()
     }
+  ];
+
+  static List<Map<String, dynamic>> borderRadiusData = [
+    {'title': 'none', 'value': BorderRadius.zero},
+    {'title': 'all', 'value': const BorderRadius.all(Radius.circular(50))},
+    {'title': 'circular', 'value': BorderRadius.circular(50)},
+    {
+      'title': 'only',
+      'value': const BorderRadius.only(topLeft: Radius.circular(100))
+    },
+    {
+      'title': 'lerp',
+      'value': BorderRadius.lerp(
+          BorderRadius.circular(1), BorderRadius.circular(70), 0.5)
+    },
+    {
+      'title': 'horizontal',
+      'value': const BorderRadius.horizontal(
+        left: Radius.circular(60),
+      )
+    },
+    {
+      'title': 'vertical',
+      'value': const BorderRadius.vertical(
+        top: Radius.circular(60),
+      )
+    },
+  ];
+
+  static const List<Map<String, dynamic>> backgroundData = [
+    {'title': 'color', 'value': Colors.blue},
+    {'title': 'transparent', 'value': Colors.transparent},
+  ];
+
+  static const List<Map<String, dynamic>> blendModeData = [
+    {'title': 'src', 'value': BlendMode.src},
+    {'title': 'overlay', 'value': BlendMode.overlay},
+    {'title': 'color Burn', 'value': BlendMode.colorBurn},
+    {'title': 'color Dodge', 'value': BlendMode.colorDodge},
+    {'title': 'multiply', 'value': BlendMode.multiply},
+    {'title': 'plus', 'value': BlendMode.plus},
+    {'title': 'saturation', 'value': BlendMode.saturation},
+    {'title': 'screen', 'value': BlendMode.screen},
+    {'title': 'soft Light', 'value': BlendMode.softLight},
+    {'title': 'xor', 'value': BlendMode.xor},
   ];
 }
