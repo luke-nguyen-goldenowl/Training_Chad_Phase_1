@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           textTheme: const TextTheme(
             labelMedium: TextStyle(
-              fontSize: 18,
+              fontSize: 17,
               fontWeight: FontWeight.w500,
-              color: Color.fromARGB(255, 70, 70, 70),
+              color: Color.fromARGB(255, 50,50,50),
             ),
           ),
         ),

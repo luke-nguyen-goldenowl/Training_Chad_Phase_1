@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_gallery_app/constants/constants.dart';
+import 'package:flutter_gallery_app/widgets/option_item.dart';
 
 class RowColumnExpanded extends StatefulWidget {
-  const RowColumnExpanded({Key? key}) : super(key: key);
+  const RowColumnExpanded({super.key});
 
   @override
   _RowColumnExpandedState createState() => _RowColumnExpandedState();
@@ -16,77 +17,10 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
   int verticalDirectionOption = 1;
   int textDirectionOption = 1;
   int textBaselineOption = 1;
-  MainAxisSize mainAxisSize = MainAxisSize.min;
-  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.center;
-  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center;
-  VerticalDirection verticalDirection = VerticalDirection.down;
-  TextDirection textDirection = TextDirection.ltr;
-  TextBaseline textBaseline = TextBaseline.alphabetic;
-
-  List<String> mainAxisSizeList = ['min', 'max'];
-  List<String> mainAxisAlignmentList = [
-    'center',
-    'end',
-    'spaceAround',
-    'spaceBetween',
-    'spaceEvenly',
-    'start'
-  ];
-  List<String> crossAxisAlignmentList = ['center', 'end', 'start'];
-  List<String> verticalDirectionList = ['down', 'up'];
-  List<String> textDirectionList = ['ltr', 'rtl'];
-  List<String> textBaselineList = ['alphabetic', 'ideographic'];
 
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-
-    if (mainAxisSizeOption == 1) {
-      mainAxisSize = MainAxisSize.min;
-    } else {
-      mainAxisSize = MainAxisSize.max;
-    }
-
-    if (mainAxisAlignmentOption == 1) {
-      mainAxisAlignment = MainAxisAlignment.center;
-    } else if (mainAxisAlignmentOption == 2) {
-      mainAxisAlignment = MainAxisAlignment.end;
-    } else if (mainAxisAlignmentOption == 3) {
-      mainAxisAlignment = MainAxisAlignment.spaceAround;
-    } else if (mainAxisAlignmentOption == 4) {
-      mainAxisAlignment = MainAxisAlignment.spaceBetween;
-    } else if (mainAxisAlignmentOption == 5) {
-      mainAxisAlignment = MainAxisAlignment.spaceEvenly;
-    } else if (mainAxisAlignmentOption == 6) {
-      mainAxisAlignment = MainAxisAlignment.start;
-    }
-
-    if (crossAxisAlignmentOption == 1) {
-      crossAxisAlignment = CrossAxisAlignment.center;
-    } else if (crossAxisAlignmentOption == 2) {
-      crossAxisAlignment = CrossAxisAlignment.end;
-    } else if (crossAxisAlignmentOption == 3) {
-      crossAxisAlignment = CrossAxisAlignment.start;
-    }
-
-    if (verticalDirectionOption == 1) {
-      verticalDirection = VerticalDirection.down;
-    } else if (verticalDirectionOption == 2) {
-      verticalDirection = VerticalDirection.up;
-    }
-
-    if (textDirectionOption == 1) {
-      textDirection = TextDirection.ltr;
-    } else if (textDirectionOption == 2) {
-      textDirection = TextDirection.rtl;
-    }
-
-    if (textBaselineOption == 1) {
-      textBaseline = TextBaseline.alphabetic;
-    } else if (textBaselineOption == 2) {
-      textBaseline = TextBaseline.ideographic;
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -116,12 +50,23 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                         Container(
                             color: Colors.yellow,
                             child: Row(
-                              mainAxisSize: mainAxisSize,
-                              mainAxisAlignment: mainAxisAlignment,
-                              crossAxisAlignment: crossAxisAlignment,
-                              verticalDirection: verticalDirection,
-                              textDirection: textDirection,
-                              textBaseline: textBaseline,
+                              mainAxisSize: Constants
+                                      .mainAxisSizeData[mainAxisSizeOption - 1]
+                                  ['value'],
+                              mainAxisAlignment:
+                                  Constants.mainAxisAlignmentData[
+                                      mainAxisAlignmentOption - 1]['value'],
+                              crossAxisAlignment:
+                                  Constants.crossAxisAlignmentData[
+                                      crossAxisAlignmentOption - 1]['value'],
+                              verticalDirection:
+                                  Constants.verticalDirectionData[
+                                      verticalDirectionOption - 1]['value'],
+                              textDirection: Constants.textDirectionData[
+                                  textDirectionOption - 1]['value'],
+                              textBaseline: Constants
+                                      .textBaselineData[textBaselineOption - 1]
+                                  ['value'],
                               children: [
                                 Image.asset('assets/icons/row_column_icon.png',
                                     width: 50, height: 50),
@@ -139,12 +84,22 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                         Container(
                           color: Colors.yellow,
                           child: Column(
-                            mainAxisSize: mainAxisSize,
-                            mainAxisAlignment: mainAxisAlignment,
-                            crossAxisAlignment: crossAxisAlignment,
-                            verticalDirection: verticalDirection,
-                            textDirection: textDirection,
-                            textBaseline: textBaseline,
+                            mainAxisSize: Constants
+                                    .mainAxisSizeData[mainAxisSizeOption - 1]
+                                ['value'],
+                            mainAxisAlignment: Constants.mainAxisAlignmentData[
+                                mainAxisAlignmentOption - 1]['value'],
+                            crossAxisAlignment:
+                                Constants.crossAxisAlignmentData[
+                                    crossAxisAlignmentOption - 1]['value'],
+                            verticalDirection: Constants.verticalDirectionData[
+                                verticalDirectionOption - 1]['value'],
+                            textDirection: Constants
+                                    .textDirectionData[textDirectionOption - 1]
+                                ['value'],
+                            textBaseline: Constants
+                                    .textBaselineData[textBaselineOption - 1]
+                                ['value'],
                             children: [
                               Image.asset('assets/icons/row_column_icon.png',
                                   width: 50, height: 50),
@@ -209,142 +164,60 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                           ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('mainAxisSize', style: textTheme.labelMedium),
-                          DropdownButton<int>(
-                            value: mainAxisSizeOption,
-                            items: mainAxisSizeList
-                                .asMap()
-                                .entries
-                                .map((entry) => DropdownMenuItem<int>(
-                                      value: entry.key + 1,
-                                      child: Text(entry.value),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                mainAxisSizeOption = value ?? 0;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('mainAxisAlignment',
-                              style: textTheme.labelMedium),
-                          DropdownButton<int>(
-                            value: mainAxisAlignmentOption,
-                            items: mainAxisAlignmentList
-                                .asMap()
-                                .entries
-                                .map((entry) => DropdownMenuItem<int>(
-                                      value: entry.key + 1,
-                                      child: Text(entry.value),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                mainAxisAlignmentOption = value ?? 0;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('crossAxisAlignment',
-                              style: textTheme.labelMedium),
-                          DropdownButton<int>(
-                            value: crossAxisAlignmentOption,
-                            items: crossAxisAlignmentList
-                                .asMap()
-                                .entries
-                                .map((entry) => DropdownMenuItem<int>(
-                                      value: entry.key + 1,
-                                      child: Text(entry.value),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                crossAxisAlignmentOption = value ?? 0;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('verticalDirection',
-                              style: textTheme.labelMedium),
-                          DropdownButton<int>(
-                            value: verticalDirectionOption,
-                            items: verticalDirectionList
-                                .asMap()
-                                .entries
-                                .map((entry) => DropdownMenuItem<int>(
-                                      value: entry.key + 1,
-                                      child: Text(entry.value),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                verticalDirectionOption = value ?? 0;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('textDirection', style: textTheme.labelMedium),
-                          DropdownButton<int>(
-                            value: textDirectionOption,
-                            items: textDirectionList
-                                .asMap()
-                                .entries
-                                .map((entry) => DropdownMenuItem<int>(
-                                      value: entry.key + 1,
-                                      child: Text(entry.value),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                textDirectionOption = value ?? 0;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        textBaseline: TextBaseline.ideographic,
-                        children: [
-                          Text('textBaseline', style: textTheme.labelMedium),
-                          DropdownButton<int>(
-                            value: textBaselineOption,
-                            items: textBaselineList
-                                .asMap()
-                                .entries
-                                .map((entry) => DropdownMenuItem<int>(
-                                      value: entry.key + 1,
-                                      child: Text(entry.value),
-                                    ))
-                                .toList(),
-                            onChanged: (value) {
-                              setState(() {
-                                textBaselineOption = value ?? 0;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
+                      OptionItem(
+                          option: mainAxisSizeOption,
+                          optionData: Constants.mainAxisSizeData,
+                          onChanged: (value) {
+                            setState(() {
+                              mainAxisSizeOption = value;
+                            });
+                          },
+                          title: 'mainAxisSize'),
+                      OptionItem(
+                          option: mainAxisAlignmentOption,
+                          optionData: Constants.mainAxisAlignmentData,
+                          onChanged: (value) {
+                            setState(() {
+                              mainAxisAlignmentOption = value;
+                            });
+                          },
+                          title: 'mainAxisAlignment'),
+                      OptionItem(
+                          option: crossAxisAlignmentOption,
+                          optionData: Constants.crossAxisAlignmentData,
+                          onChanged: (value) {
+                            setState(() {
+                              crossAxisAlignmentOption = value;
+                            });
+                          },
+                          title: 'crossAxisAlignment'),
+                      OptionItem(
+                          option: verticalDirectionOption,
+                          optionData: Constants.verticalDirectionData,
+                          onChanged: (value) {
+                            setState(() {
+                              verticalDirectionOption = value;
+                            });
+                          },
+                          title: 'verticalDirection'),
+                      OptionItem(
+                          option: textDirectionOption,
+                          optionData: Constants.textDirectionData,
+                          onChanged: (value) {
+                            setState(() {
+                              textDirectionOption = value;
+                            });
+                          },
+                          title: 'textDirection'),
+                      OptionItem(
+                          option: textBaselineOption,
+                          optionData: Constants.textBaselineData,
+                          onChanged: (value) {
+                            setState(() {
+                              textBaselineOption = value;
+                            });
+                          },
+                          title: 'textBaseline'),
                     ],
                   ),
                 ),
