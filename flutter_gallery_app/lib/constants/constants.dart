@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/row_column_expanded/row_column_expanded.dart';
 
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
@@ -64,7 +65,7 @@ class Constants {
       'title': 'Row & Column',
       'subtitle':
           'A widget that displays its children in a horizontal and vertical array',
-      'page': Placeholder()
+      'page': RowColumnExpanded()
     },
     {
       'leading': Icons.videogame_asset,
