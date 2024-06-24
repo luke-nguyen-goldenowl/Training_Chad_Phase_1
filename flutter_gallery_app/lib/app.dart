@@ -12,6 +12,23 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff2196F3)),
           useMaterial3: true,
+          textTheme: const TextTheme(
+            bodySmall: TextStyle(
+              color: Colors.black,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyMedium: TextStyle(
+              color: Colors.black,
+              fontSize: 28,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyLarge: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ),
         home: const HomeScreen());
   }
