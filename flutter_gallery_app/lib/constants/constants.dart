@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/wrap_screen/wrap_screen.dart';
 
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
@@ -70,7 +71,7 @@ class Constants {
       'leading': Icons.videogame_asset,
       'title': 'Wrap & Chip',
       'subtitle': 'Wrap & Chip',
-      'page': Placeholder()
+      'page': WrapScreen()
     },
     {
       'leading': Icons.copy,
@@ -102,5 +103,16 @@ class Constants {
       'subtitle': 'A widget that positions its children relative to its edges',
       'page': Placeholder()
     }
+  ];
+
+  static List<Map<String, dynamic>> borderTypeData = [
+    {'title': 'Stadium', 'value': const StadiumBorder()},
+    {'title': 'Circle', 'value': const CircleBorder()},
+    {
+      'title': 'RoundedRectangle',
+      'value': RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
+      )
+    },
   ];
 }
