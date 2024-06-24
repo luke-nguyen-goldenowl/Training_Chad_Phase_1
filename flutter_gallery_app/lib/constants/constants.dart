@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/custom_box_shape_screen/custom_box_shape_screen.dart';
 
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
@@ -94,7 +95,7 @@ class Constants {
       'leading': Icons.format_paint,
       'title': 'CustomBoxShape',
       'subtitle': 'A widget that positions its children relative to its edges',
-      'page': Placeholder()
+      'page': CustomBoxShapeScreen()
     },
     {
       'leading': Icons.branding_watermark_outlined,
