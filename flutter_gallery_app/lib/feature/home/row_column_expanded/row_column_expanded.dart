@@ -1,5 +1,10 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_gallery_app/constants/constants.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gallery_app/feature/home/row_column_expanded/cubit/row_column_expanded_cubit.dart';
 import 'package:flutter_gallery_app/widgets/option_item.dart';
 
 class RowColumnExpanded extends StatefulWidget {
@@ -10,17 +15,13 @@ class RowColumnExpanded extends StatefulWidget {
 }
 
 class _RowColumnExpandedState extends State<RowColumnExpanded> {
-  int rowColumnOption = 1;
-  int mainAxisSizeOption = 1;
-  int mainAxisAlignmentOption = 1;
-  int crossAxisAlignmentOption = 1;
-  int verticalDirectionOption = 1;
-  int textDirectionOption = 1;
-  int textBaselineOption = 1;
-
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+    final rowColumnExpandedCubit = context.read<RowColumnExpandedCubit>();
+    final rowColumneExpandedState =
+        context.watch<RowColumnExpandedCubit>().state;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -43,30 +44,25 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
         children: [
           Expanded(
               flex: 5,
-              child: rowColumnOption == 1
+              child: rowColumneExpandedState.rowColumnOption == 1
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                             color: Colors.yellow,
                             child: Row(
-                              mainAxisSize: Constants
-                                      .mainAxisSizeData[mainAxisSizeOption - 1]
-                                  ['value'],
-                              mainAxisAlignment:
-                                  Constants.mainAxisAlignmentData[
-                                      mainAxisAlignmentOption - 1]['value'],
-                              crossAxisAlignment:
-                                  Constants.crossAxisAlignmentData[
-                                      crossAxisAlignmentOption - 1]['value'],
-                              verticalDirection:
-                                  Constants.verticalDirectionData[
-                                      verticalDirectionOption - 1]['value'],
-                              textDirection: Constants.textDirectionData[
-                                  textDirectionOption - 1]['value'],
-                              textBaseline: Constants
-                                      .textBaselineData[textBaselineOption - 1]
-                                  ['value'],
+                              mainAxisSize:
+                                  rowColumneExpandedState.mainAxisSizeOption,
+                              mainAxisAlignment: rowColumneExpandedState
+                                  .mainAxisAlignmentOption,
+                              crossAxisAlignment: rowColumneExpandedState
+                                  .crossAxisAlignmentOption,
+                              verticalDirection: rowColumneExpandedState
+                                  .verticalDirectionOption,
+                              textDirection:
+                                  rowColumneExpandedState.textDirectionOption,
+                              textBaseline:
+                                  rowColumneExpandedState.textBaselineOption,
                               children: [
                                 Image.asset('assets/icons/row_column_icon.png',
                                     width: 50, height: 50),
@@ -84,22 +80,18 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                         Container(
                           color: Colors.yellow,
                           child: Column(
-                            mainAxisSize: Constants
-                                    .mainAxisSizeData[mainAxisSizeOption - 1]
-                                ['value'],
-                            mainAxisAlignment: Constants.mainAxisAlignmentData[
-                                mainAxisAlignmentOption - 1]['value'],
-                            crossAxisAlignment:
-                                Constants.crossAxisAlignmentData[
-                                    crossAxisAlignmentOption - 1]['value'],
-                            verticalDirection: Constants.verticalDirectionData[
-                                verticalDirectionOption - 1]['value'],
-                            textDirection: Constants
-                                    .textDirectionData[textDirectionOption - 1]
-                                ['value'],
-                            textBaseline: Constants
-                                    .textBaselineData[textBaselineOption - 1]
-                                ['value'],
+                            mainAxisSize:
+                                rowColumneExpandedState.mainAxisSizeOption,
+                            mainAxisAlignment:
+                                rowColumneExpandedState.mainAxisAlignmentOption,
+                            crossAxisAlignment: rowColumneExpandedState
+                                .crossAxisAlignmentOption,
+                            verticalDirection:
+                                rowColumneExpandedState.verticalDirectionOption,
+                            textDirection:
+                                rowColumneExpandedState.textDirectionOption,
+                            textBaseline:
+                                rowColumneExpandedState.textBaselineOption,
                             children: [
                               Image.asset('assets/icons/row_column_icon.png',
                                   width: 50, height: 50),
@@ -138,11 +130,11 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                               title: Text('Row', style: textTheme.labelMedium),
                               leading: Radio<int>(
                                 value: 1,
-                                groupValue: rowColumnOption,
+                                groupValue:
+                                    rowColumneExpandedState.rowColumnOption,
                                 onChanged: (value) {
-                                  setState(() {
-                                    rowColumnOption = value ?? 0;
-                                  });
+                                  rowColumnExpandedCubit
+                                      .setRowColumnOption(value ?? 0);
                                 },
                               ),
                             ),
@@ -153,11 +145,11 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                                   Text('Column', style: textTheme.labelMedium),
                               leading: Radio<int>(
                                 value: 2,
-                                groupValue: rowColumnOption,
+                                groupValue:
+                                    rowColumneExpandedState.rowColumnOption,
                                 onChanged: (value) {
-                                  setState(() {
-                                    rowColumnOption = value ?? 0;
-                                  });
+                                  rowColumnExpandedCubit
+                                      .setRowColumnOption(value ?? 0);
                                 },
                               ),
                             ),
@@ -165,57 +157,60 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
                         ],
                       ),
                       OptionItem(
-                          option: mainAxisSizeOption,
-                          optionData: Constants.mainAxisSizeData,
+                          getName: (p0) => p0.name,
+                          option: rowColumneExpandedState.mainAxisSizeOption,
+                          optionData: MainAxisSize.values,
                           onChanged: (value) {
-                            setState(() {
-                              mainAxisSizeOption = value;
-                            });
+                            rowColumnExpandedCubit.setMainAxisSizeOption(
+                                value ?? MainAxisSize.min);
                           },
                           title: 'mainAxisSize'),
                       OptionItem(
-                          option: mainAxisAlignmentOption,
-                          optionData: Constants.mainAxisAlignmentData,
+                          getName: (p0) => p0.name,
+                          option:
+                              rowColumneExpandedState.mainAxisAlignmentOption,
+                          optionData: MainAxisAlignment.values,
                           onChanged: (value) {
-                            setState(() {
-                              mainAxisAlignmentOption = value;
-                            });
+                            rowColumnExpandedCubit.setMainAxisAlignmentOption(
+                                value ?? MainAxisAlignment.center);
                           },
                           title: 'mainAxisAlignment'),
                       OptionItem(
-                          option: crossAxisAlignmentOption,
-                          optionData: Constants.crossAxisAlignmentData,
+                          getName: (p0) => p0.name,
+                          option:
+                              rowColumneExpandedState.crossAxisAlignmentOption,
+                          optionData: CrossAxisAlignment.values,
                           onChanged: (value) {
-                            setState(() {
-                              crossAxisAlignmentOption = value;
-                            });
+                            rowColumnExpandedCubit.setCrossAxisAlignmentOption(
+                                value ?? CrossAxisAlignment.center);
                           },
                           title: 'crossAxisAlignment'),
                       OptionItem(
-                          option: verticalDirectionOption,
-                          optionData: Constants.verticalDirectionData,
+                          getName: (p0) => p0.name,
+                          option:
+                              rowColumneExpandedState.verticalDirectionOption,
+                          optionData: VerticalDirection.values,
                           onChanged: (value) {
-                            setState(() {
-                              verticalDirectionOption = value;
-                            });
+                            rowColumnExpandedCubit.setVerticalDirectionOption(
+                                value ?? VerticalDirection.down);
                           },
                           title: 'verticalDirection'),
                       OptionItem(
-                          option: textDirectionOption,
-                          optionData: Constants.textDirectionData,
+                          getName: (p0) => p0.name,
+                          option: rowColumneExpandedState.textDirectionOption,
+                          optionData: TextDirection.values,
                           onChanged: (value) {
-                            setState(() {
-                              textDirectionOption = value;
-                            });
+                            rowColumnExpandedCubit.setTextDirectionOption(
+                                value ?? TextDirection.ltr);
                           },
                           title: 'textDirection'),
                       OptionItem(
-                          option: textBaselineOption,
-                          optionData: Constants.textBaselineData,
+                          getName: (p0) => p0.name,
+                          option: rowColumneExpandedState.textBaselineOption,
+                          optionData: TextBaseline.values,
                           onChanged: (value) {
-                            setState(() {
-                              textBaselineOption = value;
-                            });
+                            rowColumnExpandedCubit.setTextBaselineOption(
+                                value ?? TextBaseline.alphabetic);
                           },
                           title: 'textBaseline'),
                     ],

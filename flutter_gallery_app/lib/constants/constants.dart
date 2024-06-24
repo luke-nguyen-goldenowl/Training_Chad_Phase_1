@@ -104,34 +104,4 @@ class Constants {
       'page': Placeholder()
     }
   ];
-
-  static const List<Map<String, dynamic>> mainAxisSizeData = [
-    {'title': 'min', 'value': MainAxisSize.min},
-    {'title': 'max', 'value': MainAxisSize.max},
-  ];
-  static const List<Map<String, dynamic>> mainAxisAlignmentData = [
-    {'title': 'center', 'value': MainAxisAlignment.center},
-    {'title': 'end', 'value': MainAxisAlignment.end},
-    {'title': 'spaceAround', 'value': MainAxisAlignment.spaceAround},
-    {'title': 'spaceBetween', 'value': MainAxisAlignment.spaceBetween},
-    {'title': 'spaceEvenly', 'value': MainAxisAlignment.spaceEvenly},
-    {'title': 'start', 'value': MainAxisAlignment.start},
-  ];
-  static const List<Map<String, dynamic>> crossAxisAlignmentData = [
-    {'title': 'center', 'value': CrossAxisAlignment.center},
-    {'title': 'end', 'value': CrossAxisAlignment.end},
-    {'title': 'start', 'value': CrossAxisAlignment.start},
-  ];
-  static const List<Map<String, dynamic>> verticalDirectionData = [
-    {'title': 'down', 'value': VerticalDirection.down},
-    {'title': 'up', 'value': VerticalDirection.up},
-  ];
-  static const List<Map<String, dynamic>> textDirectionData = [
-    {'title': 'ltr', 'value': TextDirection.ltr},
-    {'title': 'rtl', 'value': TextDirection.rtl},
-  ];
-  static const List<Map<String, dynamic>> textBaselineData = [
-    {'title': 'alphabetic', 'value': TextBaseline.alphabetic},
-    {'title': 'ideographic', 'value': TextBaseline.ideographic},
-  ];
 }
