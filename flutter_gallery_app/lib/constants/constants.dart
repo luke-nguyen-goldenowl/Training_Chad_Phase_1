@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/rich_text_view/rich_text_view.dart';
 
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
@@ -13,7 +14,7 @@ class Constants {
       'leading': Icons.text_fields_outlined,
       'title': 'Typography',
       'subtitle': 'All of the perdefined text styles',
-      'page': Placeholder()
+      'page': RichTextView()
     },
     {
       'leading': Icons.menu,
