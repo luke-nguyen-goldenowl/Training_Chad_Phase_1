@@ -136,17 +136,5 @@ class Constants {
     {'title': 'color', 'value': Colors.blue},
     {'title': 'transparent', 'value': Colors.transparent},
   ];
-
-  static const List<Map<String, dynamic>> blendModeData = [
-    {'title': 'src', 'value': BlendMode.src},
-    {'title': 'overlay', 'value': BlendMode.overlay},
-    {'title': 'color Burn', 'value': BlendMode.colorBurn},
-    {'title': 'color Dodge', 'value': BlendMode.colorDodge},
-    {'title': 'multiply', 'value': BlendMode.multiply},
-    {'title': 'plus', 'value': BlendMode.plus},
-    {'title': 'saturation', 'value': BlendMode.saturation},
-    {'title': 'screen', 'value': BlendMode.screen},
-    {'title': 'soft Light', 'value': BlendMode.softLight},
-    {'title': 'xor', 'value': BlendMode.xor},
-  ];
 }
+

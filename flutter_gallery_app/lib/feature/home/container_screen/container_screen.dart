@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gallery_app/constants/constants.dart';
+import 'package:flutter_gallery_app/feature/home/container_screen/cubit/container_cubit.dart';
 import 'package:flutter_gallery_app/widgets/option_item.dart';
 import 'package:flutter_gallery_app/widgets/switch_item.dart';
 
-class ContainerScreen extends StatefulWidget {
-  const ContainerScreen({Key? key}) : super(key: key);
-
-  @override
-  _ContainerScreenState createState() => _ContainerScreenState();
-}
-
-class _ContainerScreenState extends State<ContainerScreen> {
-  bool borderOption = false;
-  int borderRadiusOption = 1;
-  bool boxShadowOption = false;
-  int backgroundOption = 1;
-  int blendModeOption = 1;
+class ContainerScreen extends StatelessWidget {
+  const ContainerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final containerCubit = context.read<ContainerCubit>();
+    final containerState = context.watch<ContainerCubit>().state;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -46,18 +40,16 @@ class _ContainerScreenState extends State<ContainerScreen> {
                     width: 300,
                     height: 300,
                     decoration: BoxDecoration(
-                      color: Constants.backgroundData[backgroundOption - 1]
-                          ['value'],
-                      borderRadius: Constants
-                          .borderRadiusData[borderRadiusOption - 1]['value'],
-                      border: borderOption
+                      color: containerState.backgroundOption['value'],
+                      borderRadius: containerState.borderRadiusOption['value'],
+                      border: containerState.borderOption
                           ? Border.all(
                               color: Colors.red,
                               width: 5,
                             )
                           : null,
                       boxShadow: [
-                        boxShadowOption
+                        containerState.boxShadowOption
                             ? BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
                                 spreadRadius: 5,
@@ -66,8 +58,7 @@ class _ContainerScreenState extends State<ContainerScreen> {
                               )
                             : const BoxShadow(),
                       ],
-                      backgroundBlendMode:
-                          Constants.blendModeData[blendModeOption - 1]['value'],
+                      backgroundBlendMode: containerState.blendModeOption,
                     )),
               )),
           Expanded(
@@ -91,46 +82,46 @@ class _ContainerScreenState extends State<ContainerScreen> {
                   children: [
                     SwitchItem(
                         title: 'Border',
-                        option: borderOption,
+                        option: containerState.borderOption,
                         onChanged: (value) {
-                          setState(() {
-                            borderOption = value;
-                          });
+                          containerCubit.setBorderOption(value);
                         }),
-                    OptionItem(
+                    OptionItem<Map<String, dynamic>>(
+                        getName: (p0) {
+                          return p0['title'].toString();
+                        },
                         title: 'BorderRadius',
-                        option: borderRadiusOption,
+                        option: containerState.borderRadiusOption,
                         optionData: Constants.borderRadiusData,
                         onChanged: (value) {
-                          setState(() {
-                            borderRadiusOption = value;
-                          });
+                          containerCubit.setBorderRadiusOption(value ?? {});
                         }),
                     SwitchItem(
                         title: 'BoxShadow',
-                        option: boxShadowOption,
+                        option: containerState.boxShadowOption,
                         onChanged: (value) {
-                          setState(() {
-                            boxShadowOption = value;
-                          });
+                          containerCubit.setBoxShadowOption(value);
                         }),
-                    OptionItem(
+                    OptionItem<Map<String, dynamic>>(
+                        getName: (p0) {
+                          return p0['title'].toString();
+                        },
                         title: 'Background',
-                        option: backgroundOption,
+                        option: containerState.backgroundOption,
                         optionData: Constants.backgroundData,
                         onChanged: (value) {
-                          setState(() {
-                            backgroundOption = value;
-                          });
+                          containerCubit.setBackgroundOption(value ?? {});
                         }),
-                    OptionItem(
+                    OptionItem<BlendMode>(
+                        getName: (p0) {
+                          return p0.name;
+                        },
                         title: 'BlendMode',
-                        option: blendModeOption,
-                        optionData: Constants.blendModeData,
+                        option: containerState.blendModeOption,
+                        optionData: BlendMode.values,
                         onChanged: (value) {
-                          setState(() {
-                            blendModeOption = value;
-                          });
+                          containerCubit
+                              .setBlendModeOption(value ?? BlendMode.srcOver);
                         }),
                   ],
                 ),

@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
-class OptionItem extends StatelessWidget {
+class OptionItem<T> extends StatelessWidget {
   const OptionItem(
       {Key? key,
       required this.option,
       required this.optionData,
       required this.onChanged,
-      required this.title})
+      required this.title,
+      required this.getName})
       : super(key: key);
 
   final String title;
-  final int option;
-  final List<Map<String, dynamic>> optionData;
-  final Function(int) onChanged;
+  final T option;
+  final List<T> optionData;
+  final Function(T?) onChanged;
+  final String Function(T) getName;
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +24,16 @@ class OptionItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(title, style: textTheme.labelMedium),
-        DropdownButton<int>(
+        DropdownButton<T>(
           value: option,
           items: optionData
-              .asMap()
-              .entries
-              .map((e) => DropdownMenuItem(
-                    value: e.key + 1,
-                    child: Text(e.value['title'], style: textTheme.labelMedium),
+              .map((e) => DropdownMenuItem<T>(
+                    value: e,
+                    child: Text(getName(e), style: textTheme.labelMedium),
                   ))
               .toList(),
           onChanged: (value) {
-            onChanged(value ?? 0);
+            onChanged(value);
           },
         ),
       ],
