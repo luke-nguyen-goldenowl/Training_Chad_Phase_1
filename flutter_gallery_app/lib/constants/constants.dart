@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/bottom_app_bar_screen.dart';
 
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
@@ -19,7 +20,7 @@ class Constants {
       'leading': Icons.menu,
       'title': 'Bottom app bar',
       'subtitle': 'Bottom navigation bar',
-      'page': Placeholder()
+      'page': BottomAppBarScreen()
     },
     {
       'leading': Icons.web,
@@ -102,5 +103,24 @@ class Constants {
       'subtitle': 'A widget that positions its children relative to its edges',
       'page': Placeholder()
     }
+  ];
+
+  static const List<Map<String, dynamic>> floatActionButtonPositionData = [
+    {
+      'title': 'Docked - End',
+      'value': FloatingActionButtonLocation.endDocked,
+    },
+    {
+      'title': 'Docked - Center',
+      'value': FloatingActionButtonLocation.centerDocked,
+    },
+    {
+      'title': 'Floating - End',
+      'value': FloatingActionButtonLocation.endFloat,
+    },
+    {
+      'title': 'Floating - Center',
+      'value': FloatingActionButtonLocation.centerFloat,
+    },
   ];
 }
