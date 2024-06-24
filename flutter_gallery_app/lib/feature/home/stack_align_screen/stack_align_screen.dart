@@ -1,5 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gallery_app/constants/constants.dart';
+import 'package:flutter_gallery_app/feature/home/stack_align_screen/cubit/stack_align_cubit.dart';
 import 'package:flutter_gallery_app/widgets/option_item.dart';
 
 class StackAlignScreen extends StatefulWidget {
@@ -10,13 +16,10 @@ class StackAlignScreen extends StatefulWidget {
 }
 
 class _StackAlignScreenState extends State<StackAlignScreen> {
-  int alignmentOption = 1;
-  int textDirectionOption = 1;
-  int stackFitOption = 1;
-  int clipOption = 1;
-
   @override
   Widget build(BuildContext context) {
+    final stackAlignCubit = context.read<StackAlignCubit>();
+    final stackAlignState = context.watch<StackAlignCubit>().state;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -43,12 +46,10 @@ class _StackAlignScreenState extends State<StackAlignScreen> {
                 child: SizedBox(
                   width: 300,
                   child: Stack(
-                    alignment: Constants.alignmentData[alignmentOption-1]
-                        ['value'],
-                    textDirection: Constants
-                        .textDirectionData[textDirectionOption-1]['value'],
-                    fit: Constants.stackFitData[stackFitOption-1]['value'],
-                    clipBehavior: Constants.clipData[clipOption-1]['value'],
+                    alignment: stackAlignState.alignmentOption['value'],
+                    textDirection: stackAlignState.textDirectionOption,
+                    fit: stackAlignState.stackFitOption,
+                    clipBehavior: stackAlignState.clipOption,
                     children: [
                       Container(
                         width: 300,
@@ -68,6 +69,15 @@ class _StackAlignScreenState extends State<StackAlignScreen> {
                           color: Colors.orange,
                         ),
                       ),
+                      // Positioned(
+                      //   bottom: -50,
+                      //   right: -50,
+                      //   child: Container(
+                      //     width: 150,
+                      //     height: 150,
+                      //     color: Colors.orange,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
@@ -80,41 +90,37 @@ class _StackAlignScreenState extends State<StackAlignScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    OptionItem(
+                    OptionItem<Map<String,dynamic>>(
+                        getName: (p0) => p0['title'] as String,
                         title: 'Alignment',
-                        option: alignmentOption,
+                        option: stackAlignState.alignmentOption,
                         optionData: Constants.alignmentData,
                         onChanged: (value) {
-                          setState(() {
-                            alignmentOption = value;
-                          });
+                          stackAlignCubit.setAlignmentOption(value ?? Constants.alignmentData.first);
                         }),
                     OptionItem(
+                        getName: (p0) => p0.name,
                         title: 'TextDirection',
-                        option: textDirectionOption,
-                        optionData: Constants.textDirectionData,
+                        option: stackAlignState.textDirectionOption,
+                        optionData: TextDirection.values,
                         onChanged: (value) {
-                          setState(() {
-                            textDirectionOption = value;
-                          });
+                          stackAlignCubit.setTextDirectionOption(value ?? TextDirection.ltr);
                         }),
                     OptionItem(
+                        getName: (p0) => p0.name,
                         title: 'StackFit',
-                        option: stackFitOption,
-                        optionData: Constants.stackFitData,
+                        option: stackAlignState.stackFitOption,
+                        optionData: StackFit.values,
                         onChanged: (value) {
-                          setState(() {
-                            stackFitOption = value;
-                          });
+                          stackAlignCubit.setStackFitOption(value ?? StackFit.loose);
                         }),
                     OptionItem(
+                        getName: (p0) => p0.name,
                         title: 'Clip',
-                        option: clipOption,
-                        optionData: Constants.clipData,
+                        option: stackAlignState.clipOption,
+                        optionData: Clip.values,
                         onChanged: (value) {
-                          setState(() {
-                            clipOption = value;
-                          });
+                          stackAlignCubit.setClipOption(value ?? Clip.none);
                         }),
                   ],
                 ),

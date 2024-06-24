@@ -143,47 +143,4 @@ class Constants {
       'value': Alignment.topRight,
     },
   ];
-
-  static const List<Map<String, dynamic>> textDirectionData = [
-    {
-      'title': 'ltr',
-      'value': TextDirection.ltr,
-    },
-    {
-      'title': 'rtl',
-      'value': TextDirection.rtl,
-    },
-  ];
-  static const List<Map<String, dynamic>> stackFitData = [
-    {
-      'title': 'loose',
-      'value': StackFit.loose,
-    },
-    {
-      'title': 'expand',
-      'value': StackFit.expand,
-    },
-    {
-      'title': 'passthrough',
-      'value': StackFit.passthrough,
-    },
-  ];
-  static const List<Map<String, dynamic>> clipData = [
-    {
-      'title': 'none',
-      'value': Clip.none,
-    },
-    {
-      'title': 'hardEdge',
-      'value': Clip.hardEdge,
-    },
-    {
-      'title': 'antiAlias',
-      'value': Clip.antiAlias,
-    },
-    {
-      'title': 'antiAliasWithSaveLayer',
-      'value': Clip.antiAliasWithSaveLayer,
-    },
-  ];
 }
