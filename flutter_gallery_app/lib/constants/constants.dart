@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/button_screen/button_screen.dart';
 
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
@@ -26,7 +27,7 @@ class Constants {
       'title': 'Button',
       'subtitle':
           'RaisedButton, FlatButton, DropdownButton, FloatingActionButton,IconButton, InkWell, RawMaterialButton',
-      'page': Placeholder()
+      'page': ButtonScreen()
     },
     {
       'leading': Icons.list,
@@ -102,5 +103,15 @@ class Constants {
       'subtitle': 'A widget that positions its children relative to its edges',
       'page': Placeholder()
     }
+  ];
+
+  static const List<String> dropdownData = <String>[
+    'Dropdown',
+    'Another Item',
+  ];
+
+  static const List<String> dropdownFormFieldData = <String>[
+    'Dropdown Form Field',
+    'Another Item',
   ];
 }
