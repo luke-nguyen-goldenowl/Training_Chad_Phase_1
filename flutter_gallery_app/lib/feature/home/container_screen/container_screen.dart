@@ -10,123 +10,151 @@ class ContainerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final containerCubit = context.read<ContainerCubit>();
-    final containerState = context.watch<ContainerCubit>().state;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Container View',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-        ),
-        backgroundColor: const Color(0xff2196F3),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
+    return BlocProvider(
+      create: (context) => ContainerCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Container View',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
           ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          backgroundColor: const Color(0xff2196F3),
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          centerTitle: false,
         ),
-        centerTitle: false,
-      ),
-      body: Column(
-        children: [
-          Expanded(
-              flex: 7,
-              child: Center(
+        body: Column(
+          children: [
+            Expanded(
+                flex: 7,
+                child: Center(
+                  child: BlocBuilder<ContainerCubit, ContainerState>(
+                    buildWhen: (p, c) =>
+                        p.backgroundOption['value'] !=
+                            c.backgroundOption['value'] ||
+                        p.borderRadiusOption['value'] !=
+                            c.borderRadiusOption['value'] ||
+                        p.borderOption != c.borderOption ||
+                        p.boxShadowOption != c.boxShadowOption ||
+                        p.blendModeOption != c.blendModeOption,
+                    builder: (context, state) => Container(
+                        width: 300,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          color: state.backgroundOption['value'],
+                          borderRadius: state.borderRadiusOption['value'],
+                          border: state.borderOption
+                              ? Border.all(
+                                  color: Colors.red,
+                                  width: 5,
+                                )
+                              : null,
+                          boxShadow: [
+                            state.boxShadowOption
+                                ? BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 5,
+                                    blurRadius: 7,
+                                    offset: const Offset(0, 3),
+                                  )
+                                : const BoxShadow(),
+                          ],
+                          backgroundBlendMode: state.blendModeOption,
+                        )),
+                  ),
+                )),
+            Expanded(
+                flex: 4,
                 child: Container(
-                    width: 300,
-                    height: 300,
-                    decoration: BoxDecoration(
-                      color: containerState.backgroundOption['value'],
-                      borderRadius: containerState.borderRadiusOption['value'],
-                      border: containerState.borderOption
-                          ? Border.all(
-                              color: Colors.red,
-                              width: 5,
-                            )
-                          : null,
-                      boxShadow: [
-                        containerState.boxShadowOption
-                            ? BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(0, 3),
-                              )
-                            : const BoxShadow(),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: const Offset(0, 5),
+                      ),
+                    ],
+                  ),
+                  child: BlocBuilder<ContainerCubit, ContainerState>(
+                    buildWhen: (p, c) =>
+                        p.backgroundOption['value'] !=
+                            c.backgroundOption['value'] ||
+                        p.borderRadiusOption['value'] !=
+                            c.borderRadiusOption['value'] ||
+                        p.borderOption != c.borderOption ||
+                        p.boxShadowOption != c.boxShadowOption ||
+                        p.blendModeOption != c.blendModeOption,
+                    builder: (context, state) => Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SwitchItem(
+                            title: 'Border',
+                            option: state.borderOption,
+                            onChanged: (value) {
+                              context
+                                  .read<ContainerCubit>()
+                                  .setBorderOption(value);
+                            }),
+                        OptionItem<Map<String, dynamic>>(
+                            getName: (p0) {
+                              return p0['title'].toString();
+                            },
+                            title: 'BorderRadius',
+                            option: state.borderRadiusOption,
+                            optionData: Constants.borderRadiusData,
+                            onChanged: (value) {
+                              context
+                                  .read<ContainerCubit>()
+                                  .setBorderRadiusOption(value ?? {});
+                            }),
+                        SwitchItem(
+                            title: 'BoxShadow',
+                            option: state.boxShadowOption,
+                            onChanged: (value) {
+                              context
+                                  .read<ContainerCubit>()
+                                  .setBoxShadowOption(value);
+                            }),
+                        OptionItem<Map<String, dynamic>>(
+                            getName: (p0) {
+                              return p0['title'].toString();
+                            },
+                            title: 'Background',
+                            option: state.backgroundOption,
+                            optionData: Constants.backgroundData,
+                            onChanged: (value) {
+                              context
+                                  .read<ContainerCubit>()
+                                  .setBackgroundOption(value ?? {});
+                            }),
+                        OptionItem<BlendMode>(
+                            getName: (p0) {
+                              return p0.name;
+                            },
+                            title: 'BlendMode',
+                            option: state.blendModeOption,
+                            optionData: BlendMode.values,
+                            onChanged: (value) {
+                              context.read<ContainerCubit>().setBlendModeOption(
+                                  value ?? BlendMode.srcOver);
+                            }),
                       ],
-                      backgroundBlendMode: containerState.blendModeOption,
-                    )),
-              )),
-          Expanded(
-              flex: 4,
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, 5),
                     ),
-                  ],
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SwitchItem(
-                        title: 'Border',
-                        option: containerState.borderOption,
-                        onChanged: (value) {
-                          containerCubit.setBorderOption(value);
-                        }),
-                    OptionItem<Map<String, dynamic>>(
-                        getName: (p0) {
-                          return p0['title'].toString();
-                        },
-                        title: 'BorderRadius',
-                        option: containerState.borderRadiusOption,
-                        optionData: Constants.borderRadiusData,
-                        onChanged: (value) {
-                          containerCubit.setBorderRadiusOption(value ?? {});
-                        }),
-                    SwitchItem(
-                        title: 'BoxShadow',
-                        option: containerState.boxShadowOption,
-                        onChanged: (value) {
-                          containerCubit.setBoxShadowOption(value);
-                        }),
-                    OptionItem<Map<String, dynamic>>(
-                        getName: (p0) {
-                          return p0['title'].toString();
-                        },
-                        title: 'Background',
-                        option: containerState.backgroundOption,
-                        optionData: Constants.backgroundData,
-                        onChanged: (value) {
-                          containerCubit.setBackgroundOption(value ?? {});
-                        }),
-                    OptionItem<BlendMode>(
-                        getName: (p0) {
-                          return p0.name;
-                        },
-                        title: 'BlendMode',
-                        option: containerState.blendModeOption,
-                        optionData: BlendMode.values,
-                        onChanged: (value) {
-                          containerCubit
-                              .setBlendModeOption(value ?? BlendMode.srcOver);
-                        }),
-                  ],
-                ),
-              )),
-        ],
+                  ),
+                )),
+          ],
+        ),
       ),
     );
   }
