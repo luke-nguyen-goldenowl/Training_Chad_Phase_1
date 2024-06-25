@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/bottom_app_bar_screen.dart';
 import 'package:flutter_gallery_app/feature/home/button_screen/button_screen.dart';
 import 'package:flutter_gallery_app/feature/home/wrap_screen/wrap_screen.dart';
 import 'package:flutter_gallery_app/feature/home/container_screen/container_screen.dart';
@@ -25,7 +26,7 @@ class Constants {
       'leading': Icons.menu,
       'title': 'Bottom app bar',
       'subtitle': 'Bottom navigation bar',
-      'page': Placeholder()
+      'page': BottomAppBarScreen()
     },
     {
       'leading': Icons.web,
@@ -102,12 +103,25 @@ class Constants {
       'subtitle': 'A widget that positions its children relative to its edges',
       'page': Placeholder()
     },
+  ];
+
+  static const List<Map<String, dynamic>> floatActionButtonPositionData = [
     {
-      'leading': Icons.branding_watermark_outlined,
-      'title': 'Scaffold - BottomAppBar & ActionFloatButton',
-      'subtitle': 'A widget that positions its children relative to its edges',
-      'page': Placeholder()
-    }
+      'title': 'Docked - End',
+      'value': FloatingActionButtonLocation.endDocked,
+    },
+    {
+      'title': 'Docked - Center',
+      'value': FloatingActionButtonLocation.centerDocked,
+    },
+    {
+      'title': 'Floating - End',
+      'value': FloatingActionButtonLocation.endFloat,
+    },
+    {
+      'title': 'Floating - Center',
+      'value': FloatingActionButtonLocation.centerFloat,
+    },
   ];
 
   static const List<String> dropdownData = <String>[
