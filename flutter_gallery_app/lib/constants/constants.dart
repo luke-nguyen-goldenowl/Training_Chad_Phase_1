@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gallery_app/feature/home/stack_align_screen/stack_align_screen.dart';
+import 'package:flutter_gallery_app/feature/home/row_column_expanded/row_column_expanded.dart';
 import 'package:flutter_gallery_app/feature/home/rich_text_view/rich_text_view.dart';
 
 class Constants {
@@ -66,7 +67,7 @@ class Constants {
       'title': 'Row & Column',
       'subtitle':
           'A widget that displays its children in a horizontal and vertical array',
-      'page': Placeholder()
+      'page': RowColumnExpanded()
     },
     {
       'leading': Icons.videogame_asset,

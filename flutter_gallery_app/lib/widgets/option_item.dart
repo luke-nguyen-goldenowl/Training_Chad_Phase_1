@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 
 class OptionItem<T> extends StatelessWidget {
   const OptionItem(
-      {super.key,
+      {Key? key,
       required this.option,
       required this.optionData,
       required this.onChanged,
-      required this.title, required this.getName});
+      required this.title,
+      required this.getName})
+      : super(key: key);
 
   final String title;
   final T option;
   final List<T> optionData;
   final Function(T?) onChanged;
-  final Function(T) getName;
+  final String Function(T) getName;
 
   @override
   Widget build(BuildContext context) {
