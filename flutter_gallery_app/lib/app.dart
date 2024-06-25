@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gallery_app/feature/home/home_screen.dart';
-import 'package:flutter_gallery_app/feature/home/wrap_screen/cubit/wrap_screen_cubit.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/button_screen/button_screen.dart';
 import 'package:flutter_gallery_app/feature/home/wrap_screen/wrap_screen.dart';
 import 'package:flutter_gallery_app/feature/home/container_screen/container_screen.dart';
 import 'package:flutter_gallery_app/feature/home/stack_align_screen/stack_align_screen.dart';
@@ -31,7 +32,7 @@ class Constants {
       'title': 'Button',
       'subtitle':
           'RaisedButton, FlatButton, DropdownButton, FloatingActionButton,IconButton, InkWell, RawMaterialButton',
-      'page': Placeholder()
+      'page': ButtonScreen()
     },
     {
       'leading': Icons.list,
@@ -109,6 +110,16 @@ class Constants {
     }
   ];
 
+  static const List<String> dropdownData = <String>[
+    'Dropdown',
+    'Another Item',
+  ];
+
+  static const List<String> dropdownFormFieldData = <String>[
+    'Dropdown Form Field',
+    'Another Item',
+  ];
+
   static List<Map<String, dynamic>> borderTypeData = [
     {'title': 'Stadium', 'value': const StadiumBorder()},
     {'title': 'Circle', 'value': const CircleBorder()},
@@ -119,6 +130,7 @@ class Constants {
       )
     },
   ];
+
   static List<Map<String, dynamic>> borderRadiusData = [
     {'title': 'none', 'value': BorderRadius.zero},
     {'title': 'all', 'value': const BorderRadius.all(Radius.circular(50))},
@@ -189,4 +201,3 @@ class Constants {
     },
   ];
 }
-
