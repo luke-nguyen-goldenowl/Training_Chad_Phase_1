@@ -18,6 +18,21 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: Color.fromARGB(255, 50, 50, 50),
             ),
+            bodySmall: TextStyle(
+              color: Colors.black,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyMedium: TextStyle(
+              color: Colors.black,
+              fontSize: 28,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyLarge: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
         home: const HomeScreen());

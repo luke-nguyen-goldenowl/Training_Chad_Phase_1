@@ -5,14 +5,9 @@ import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/widgets/b
 import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/widgets/bottom_navigation_bar_widget.dart';
 import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/widgets/floating_action_button_widget.dart';
 
-class BottomAppBarScreen extends StatefulWidget {
+class BottomAppBarScreen extends StatelessWidget {
   const BottomAppBarScreen({Key? key}) : super(key: key);
 
-  @override
-  _BottomAppBarScreenState createState() => _BottomAppBarScreenState();
-}
-
-class _BottomAppBarScreenState extends State<BottomAppBarScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
