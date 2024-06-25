@@ -22,7 +22,7 @@ class TextFieldWidget extends StatelessWidget {
           ),
         ],
       ),
-      child: BlocBuilder<TextFieldScreenCubit,TextFieldScreenState>(
+      child: BlocBuilder<TextFieldScreenCubit, TextFieldScreenState>(
         buildWhen: (p, c) =>
             p.showCounterText != c.showCounterText ||
             p.showErrorText != c.showErrorText ||
@@ -36,56 +36,36 @@ class TextFieldWidget extends StatelessWidget {
           children: [
             TextField(
               decoration: InputDecoration(
-                hintText: state.showHintText
-                    ? 'Hint Text'
-                    : null,
-                labelText: state.showLabelText
-                    ? 'Label Text'
-                    : null,
-                helperText: state.showHelpText
-                    ? 'Help Text'
-                    : null,
-                errorText: state.showErrorText
-                    ? 'Error Text'
-                    : null,
-                counterText: state.showCounterText
-                    ? 'Counter Text'
-                    : null,
-                prefixText:
-                    state.showPrefix ? 'Prefix' : null,
-                suffixText:
-                    state.showSuffix ? 'Suffix' : null,
-                prefixIcon: state.showPrefixIcon
-                    ? const Icon(Icons.person)
-                    : null,
+                hintText: state.showHintText ? 'Hint Text' : null,
+                labelText: state.showLabelText ? 'Label Text' : null,
+                helperText: state.showHelpText ? 'Help Text' : null,
+                errorText: state.showErrorText ? 'Error Text' : null,
+                counterText: state.showCounterText ? 'Counter Text' : null,
+                prefixText: state.showPrefix ? 'Prefix' : null,
+                suffixText: state.showSuffix ? 'Suffix' : null,
+                prefixIcon:
+                    state.showPrefixIcon ? const Icon(Icons.person) : null,
+                errorStyle: const TextStyle(fontSize: 14),
+                counterStyle: const TextStyle(fontSize: 14),
+                helperStyle: const TextStyle(fontSize: 14),
               ),
             ),
             const SizedBox(height: 20),
             TextField(
               decoration: InputDecoration(
-                hintText: state.showHintText
-                    ? 'Hint Text'
-                    : null,
-                labelText: state.showLabelText
-                    ? 'Label Text'
-                    : null,
-                helperText: state.showHelpText
-                    ? 'Help Text'
-                    : null,
-                errorText: state.showErrorText
-                    ? 'Error Text'
-                    : null,
-                counterText: state.showCounterText
-                    ? 'Counter Text'
-                    : null,
-                prefixText:
-                    state.showPrefix ? 'Prefix' : null,
-                suffixText:
-                      state.showSuffix ? 'Suffix' : null,
-                prefixIcon: state.showPrefixIcon
-                    ? const Icon(Icons.person)
-                    : null,
+                hintText: state.showHintText ? 'Hint Text' : null,
+                labelText: state.showLabelText ? 'Label Text' : null,
+                helperText: state.showHelpText ? 'Help Text' : null,
+                errorText: state.showErrorText ? 'Error Text' : null,
+                counterText: state.showCounterText ? 'Counter Text' : null,
+                prefixText: state.showPrefix ? 'Prefix' : null,
+                suffixText: state.showSuffix ? 'Suffix' : null,
+                prefixIcon:
+                    state.showPrefixIcon ? const Icon(Icons.person) : null,
                 border: const OutlineInputBorder(),
+                errorStyle: const TextStyle(fontSize: 14),
+                counterStyle: const TextStyle(fontSize: 14),
+                helperStyle: const TextStyle(fontSize: 14),
               ),
             )
           ],
