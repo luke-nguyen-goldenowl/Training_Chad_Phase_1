@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/custom_box_shape_screen/custom_box_shape_screen.dart';
 import 'package:flutter_gallery_app/feature/home/text_field_screen/text_field_screen.dart';
 import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/bottom_app_bar_screen.dart';
 import 'package:flutter_gallery_app/feature/home/button_screen/button_screen.dart';
@@ -102,7 +103,7 @@ class Constants {
       'leading': Icons.format_paint,
       'title': 'CustomBoxShape',
       'subtitle': 'A widget that positions its children relative to its edges',
-      'page': Placeholder()
+      'page': CustomBoxShapeScreen()
     },
   ];
 
