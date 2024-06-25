@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gallery_app/feature/home/row_column_expanded/row_column_expanded_config/row_column_expanded_config.dart';
-import 'package:flutter_gallery_app/feature/home/row_column_expanded/row_column_expanded_content/row_column_expanded_content.dart';
+import 'package:flutter_gallery_app/feature/home/row_column_expanded/widgets/row_column_expanded_config.dart';
+import 'package:flutter_gallery_app/feature/home/row_column_expanded/widgets/row_column_expanded_content.dart';
 import 'package:flutter_gallery_app/feature/home/row_column_expanded/cubit/row_column_expanded_cubit.dart';
 
 class RowColumnExpanded extends StatefulWidget {
@@ -14,8 +14,6 @@ class RowColumnExpanded extends StatefulWidget {
 class _RowColumnExpandedState extends State<RowColumnExpanded> {
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-
     return BlocProvider(
       create: (context) => RowColumnExpandedCubit(),
       child: Scaffold(
@@ -36,10 +34,16 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
           ),
           centerTitle: false,
         ),
-        body: Column(
+        body: const Column(
           children: [
-            const RowColumnExpandedContent(),
-            RowColumnExpandedConfig(textTheme: textTheme),
+            Expanded(
+              flex: 5,
+              child: RowColumnExpandedContent(),
+            ),
+            Expanded(
+              flex: 4,
+              child: RowColumnExpandedConfig(),
+            ),
           ],
         ),
       ),
