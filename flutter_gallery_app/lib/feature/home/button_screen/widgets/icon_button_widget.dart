@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class IconButtonWidget extends StatelessWidget {
   const IconButtonWidget({
     super.key,
@@ -10,11 +9,12 @@ class IconButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
       decoration: BoxDecoration(
+        color: const Color(0xff2196F3),
         boxShadow: [
           BoxShadow(
-            color: const Color.fromARGB(255, 187, 187, 187)
-                .withOpacity(0.3),
+            color: const Color.fromARGB(255, 187, 187, 187).withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 5),
