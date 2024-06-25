@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gallery_app/feature/home/rich_text_view/rich_text_view.dart';
+import 'package:flutter_gallery_app/feature/home/cupertino_screen/cupertino_screen.dart';
 
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
@@ -8,7 +9,7 @@ class Constants {
       'title': 'Cupertino',
       'subtitle':
           'Beautiful and high-fidelity widgets for current iOS design language',
-      'page': Placeholder()
+      'page': CupertinoScreen()
     },
     {
       'leading': Icons.text_fields_outlined,
