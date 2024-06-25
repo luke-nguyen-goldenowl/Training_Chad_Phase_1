@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gallery_app/feature/home/container_screen/cubit/container_cubit.dart';
 import 'package:flutter_gallery_app/feature/home/home_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -12,14 +10,28 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          colorScheme:
-              ColorScheme.fromSeed(seedColor: const Color(0xff2196F3)),
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff2196F3)),
           useMaterial3: false,
           textTheme: const TextTheme(
             labelMedium: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w500,
               color: Color.fromARGB(255, 50, 50, 50),
+            ),
+            bodySmall: TextStyle(
+              color: Colors.black,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyMedium: TextStyle(
+              color: Colors.black,
+              fontSize: 28,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyLarge: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),
