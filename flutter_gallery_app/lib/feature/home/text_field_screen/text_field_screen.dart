@@ -4,14 +4,9 @@ import 'package:flutter_gallery_app/feature/home/text_field_screen/cubit/text_fi
 import 'package:flutter_gallery_app/feature/home/text_field_screen/widgets/text_field_config_widget.dart';
 import 'package:flutter_gallery_app/feature/home/text_field_screen/widgets/text_field_widget.dart';
 
-class TextFieldScreen extends StatefulWidget {
+class TextFieldScreen extends StatelessWidget {
   const TextFieldScreen({Key? key}) : super(key: key);
 
-  @override
-  _TextFieldScreenState createState() => _TextFieldScreenState();
-}
-
-class _TextFieldScreenState extends State<TextFieldScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
