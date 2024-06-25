@@ -27,7 +27,7 @@ class OptionItem<T> extends StatelessWidget {
         DropdownButton<T>(
           value: option,
           items: optionData
-              .map((e) => DropdownMenuItem(
+              .map((e) => DropdownMenuItem<T>(
                     value: e,
                     child: Text(getName(e), style: textTheme.labelMedium),
                   ))

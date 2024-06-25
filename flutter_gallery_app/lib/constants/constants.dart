@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/container_screen/container_screen.dart';
 import 'package:flutter_gallery_app/feature/home/stack_align_screen/stack_align_screen.dart';
 import 'package:flutter_gallery_app/feature/home/row_column_expanded/row_column_expanded.dart';
 import 'package:flutter_gallery_app/feature/home/rich_text_view/rich_text_view.dart';
@@ -85,7 +86,7 @@ class Constants {
       'leading': Icons.check_box_outline_blank_sharp,
       'title': 'Container - Decoration',
       'subtitle': 'A widget that positions its children relative to its edges',
-      'page': Placeholder()
+      'page': ContainerScreen()
     },
     {
       'leading': Icons.image,
@@ -107,6 +108,37 @@ class Constants {
     }
   ];
 
+  static List<Map<String, dynamic>> borderRadiusData = [
+    {'title': 'none', 'value': BorderRadius.zero},
+    {'title': 'all', 'value': const BorderRadius.all(Radius.circular(50))},
+    {'title': 'circular', 'value': BorderRadius.circular(50)},
+    {
+      'title': 'only',
+      'value': const BorderRadius.only(topLeft: Radius.circular(100))
+    },
+    {
+      'title': 'lerp',
+      'value': BorderRadius.lerp(
+          BorderRadius.circular(1), BorderRadius.circular(70), 0.5)
+    },
+    {
+      'title': 'horizontal',
+      'value': const BorderRadius.horizontal(
+        left: Radius.circular(60),
+      )
+    },
+    {
+      'title': 'vertical',
+      'value': const BorderRadius.vertical(
+        top: Radius.circular(60),
+      )
+    },
+  ];
+
+  static const List<Map<String, dynamic>> backgroundData = [
+    {'title': 'color', 'value': Colors.blue},
+    {'title': 'transparent', 'value': Colors.transparent},
+  ];
   static const List<Map<String, dynamic>> alignmentData = [
     {
       'title': 'bottomCenter',
@@ -146,3 +178,4 @@ class Constants {
     },
   ];
 }
+
