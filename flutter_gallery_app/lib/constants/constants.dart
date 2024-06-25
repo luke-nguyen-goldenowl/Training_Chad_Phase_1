@@ -8,6 +8,7 @@ import 'package:flutter_gallery_app/feature/home/container_screen/container_scre
 import 'package:flutter_gallery_app/feature/home/stack_align_screen/stack_align_screen.dart';
 import 'package:flutter_gallery_app/feature/home/row_column_expanded/row_column_expanded.dart';
 import 'package:flutter_gallery_app/feature/home/rich_text_view/rich_text_view.dart';
+import 'package:flutter_gallery_app/feature/home/cupertino_screen/cupertino_screen.dart';
 
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
@@ -16,7 +17,7 @@ class Constants {
       'title': 'Cupertino',
       'subtitle':
           'Beautiful and high-fidelity widgets for current iOS design language',
-      'page': Placeholder()
+      'page': CupertinoScreen()
     },
     {
       'leading': Icons.text_fields_outlined,
