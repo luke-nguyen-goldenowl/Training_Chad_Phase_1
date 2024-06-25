@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gallery_app/feature/home/button_screen/cubit/button_screen_cubit.dart';
 import 'package:flutter_gallery_app/feature/home/home_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -15,6 +13,23 @@ class MyApp extends StatelessWidget {
           colorScheme:
               ColorScheme.fromSeed(seedColor: const Color(0xff2196F3)),
           useMaterial3: true,
+          textTheme: const TextTheme(
+            bodySmall: TextStyle(
+              color: Colors.black,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyMedium: TextStyle(
+              color: Colors.black,
+              fontSize: 28,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyLarge: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ),
         home: const HomeScreen());
   }
