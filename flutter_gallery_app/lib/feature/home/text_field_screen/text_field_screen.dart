@@ -13,165 +13,187 @@ class TextFieldScreen extends StatefulWidget {
 class _TextFieldScreenState extends State<TextFieldScreen> {
   @override
   Widget build(BuildContext context) {
-    final textFieldScreenCubit = context.read<TextFieldScreenCubit>();
-    final textFieldScreenState = context.watch<TextFieldScreenCubit>().state;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Form view',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
-        ),
-        backgroundColor: const Color(0xff2196F3),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
+    return BlocProvider(
+      create: (context) => TextFieldScreenCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Form view',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
           ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          backgroundColor: const Color(0xff2196F3),
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          centerTitle: false,
         ),
-        centerTitle: false,
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            flex: 7,
-            child: Container(
-              padding: const EdgeInsets.all(30),
-              color: const Color.fromARGB(255, 250, 250, 250),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SwitchItem(
-                      title: 'Hint Text',
-                      option: textFieldScreenState.showHintText,
-                      onChanged: (value) {
-                        textFieldScreenCubit.toggleHintText(value);
-                      }),
-                  SwitchItem(
-                      title: 'Label Text',
-                      option: textFieldScreenState.showLabelText,
-                      onChanged: (value) {
-                        textFieldScreenCubit.toggleLabelText(value);
-                      }),
-                  SwitchItem(
-                      title: 'Help Text',
-                      option: textFieldScreenState.showHelpText,
-                      onChanged: (value) {
-                        textFieldScreenCubit.toggleHelpText(value);
-                      }),
-                  SwitchItem(
-                      title: 'Error Text',
-                      option: textFieldScreenState.showErrorText,
-                      onChanged: (value) {
-                        textFieldScreenCubit.toggleErrorText(value);
-                      }),
-                  SwitchItem(
-                      title: 'Counter Text',
-                      option: textFieldScreenState.showCounterText,
-                      onChanged: (value) {
-                        textFieldScreenCubit.toggleCounterText(value);
-                      }),
-                  SwitchItem(
-                      title: 'Prefix',
-                      option: textFieldScreenState.showPrefix,
-                      onChanged: (value) {
-                        textFieldScreenCubit.togglePrefix(value);
-                      }),
-                  SwitchItem(
-                      title: 'Suffix',
-                      option: textFieldScreenState.showSuffix,
-                      onChanged: (value) {
-                        textFieldScreenCubit.toggleSuffix(value);
-                      }),
-                  SwitchItem(
-                      title: 'Prefix Icon',
-                      option: textFieldScreenState.showPrefixIcon,
-                      onChanged: (value) {
-                        textFieldScreenCubit.togglePrefixIcon(value);
-                      }),
-                ],
+        body: Column(
+          children: [
+            Expanded(
+              flex: 7,
+              child: Container(
+                padding: const EdgeInsets.all(30),
+                color: const Color.fromARGB(255, 250, 250, 250),
+                child: BlocBuilder<TextFieldScreenCubit, TextFieldScreenState>(
+                  buildWhen: (p, c) =>
+                      p.showCounterText != c.showCounterText ||
+                      p.showErrorText != c.showErrorText ||
+                      p.showHelpText != c.showHelpText ||
+                      p.showHintText != c.showHintText ||
+                      p.showLabelText != c.showLabelText ||
+                      p.showPrefix != c.showPrefix ||
+                      p.showPrefixIcon != c.showPrefixIcon ||
+                      p.showSuffix != c.showSuffix,
+                  builder: (context, state) => Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SwitchItem(
+                          title: 'Hint Text',
+                          option: state.showHintText,
+                          onChanged: (value) {
+                            context.read<TextFieldScreenCubit>().toggleHintText(value);
+                          }),
+                      SwitchItem(
+                          title: 'Label Text',
+                          option: state.showLabelText,
+                          onChanged: (value) {
+                            context.read<TextFieldScreenCubit>().toggleLabelText(value);
+                          }),
+                      SwitchItem(
+                          title: 'Help Text',
+                          option: state.showHelpText,
+                          onChanged: (value) {
+                            context.read<TextFieldScreenCubit>().toggleHelpText(value);
+                          }),
+                      SwitchItem(
+                          title: 'Error Text',
+                          option: state.showErrorText,
+                          onChanged: (value) {
+                            context.read<TextFieldScreenCubit>().toggleErrorText(value);
+                          }),
+                      SwitchItem(
+                          title: 'Counter Text',
+                          option: state.showCounterText,
+                          onChanged: (value) {
+                            context.read<TextFieldScreenCubit>().toggleCounterText(value);
+                          }),
+                      SwitchItem(
+                          title: 'Prefix',
+                          option: state.showPrefix,
+                          onChanged: (value) {
+                            context.read<TextFieldScreenCubit>().togglePrefix(value);
+                          }),
+                      SwitchItem(
+                          title: 'Suffix',
+                          option: state.showSuffix,
+                          onChanged: (value) {
+                            context.read<TextFieldScreenCubit>().toggleSuffix(value);
+                          }),
+                      SwitchItem(
+                          title: 'Prefix Icon',
+                          option: state.showPrefixIcon,
+                          onChanged: (value) {
+                            context.read<TextFieldScreenCubit>().togglePrefixIcon(value);
+                          }),
+                    ],
+                  ),
+                ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 3,
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 1,
-                    offset: const Offset(0, 1),
-                  ),
-                ],
-              ),
-              child: Column(
-                children: [
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: textFieldScreenState.showHintText
-                          ? 'Hint Text'
-                          : null,
-                      labelText: textFieldScreenState.showLabelText
-                          ? 'Label Text'
-                          : null,
-                      helperText: textFieldScreenState.showHelpText
-                          ? 'Help Text'
-                          : null,
-                      errorText: textFieldScreenState.showErrorText
-                          ? 'Error Text'
-                          : null,
-                      counterText: textFieldScreenState.showCounterText
-                          ? 'Counter Text'
-                          : null,
-                      prefixText:
-                          textFieldScreenState.showPrefix ? 'Prefix' : null,
-                      suffixText:
-                          textFieldScreenState.showSuffix ? 'Suffix' : null,
-                      prefixIcon: textFieldScreenState.showPrefixIcon
-                          ? const Icon(Icons.person)
-                          : null,
+            Expanded(
+              flex: 3,
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: const Offset(0, 1),
                     ),
+                  ],
+                ),
+                child: BlocBuilder<TextFieldScreenCubit,TextFieldScreenState>(
+                  buildWhen: (p, c) =>
+                      p.showCounterText != c.showCounterText ||
+                      p.showErrorText != c.showErrorText ||
+                      p.showHelpText != c.showHelpText ||
+                      p.showHintText != c.showHintText ||
+                      p.showLabelText != c.showLabelText ||
+                      p.showPrefix != c.showPrefix ||
+                      p.showPrefixIcon != c.showPrefixIcon ||
+                      p.showSuffix != c.showSuffix,
+                  builder: (context, state) => Column(
+                    children: [
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: state.showHintText
+                              ? 'Hint Text'
+                              : null,
+                          labelText: state.showLabelText
+                              ? 'Label Text'
+                              : null,
+                          helperText: state.showHelpText
+                              ? 'Help Text'
+                              : null,
+                          errorText: state.showErrorText
+                              ? 'Error Text'
+                              : null,
+                          counterText: state.showCounterText
+                              ? 'Counter Text'
+                              : null,
+                          prefixText:
+                              state.showPrefix ? 'Prefix' : null,
+                          suffixText:
+                              state.showSuffix ? 'Suffix' : null,
+                          prefixIcon: state.showPrefixIcon
+                              ? const Icon(Icons.person)
+                              : null,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: state.showHintText
+                              ? 'Hint Text'
+                              : null,
+                          labelText: state.showLabelText
+                              ? 'Label Text'
+                              : null,
+                          helperText: state.showHelpText
+                              ? 'Help Text'
+                              : null,
+                          errorText: state.showErrorText
+                              ? 'Error Text'
+                              : null,
+                          counterText: state.showCounterText
+                              ? 'Counter Text'
+                              : null,
+                          prefixText:
+                              state.showPrefix ? 'Prefix' : null,
+                          suffixText:
+                                state.showSuffix ? 'Suffix' : null,
+                          prefixIcon: state.showPrefixIcon
+                              ? const Icon(Icons.person)
+                              : null,
+                          border: const OutlineInputBorder(),
+                        ),
+                      )
+                    ],
                   ),
-                  const SizedBox(height: 20),
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: textFieldScreenState.showHintText
-                          ? 'Hint Text'
-                          : null,
-                      labelText: textFieldScreenState.showLabelText
-                          ? 'Label Text'
-                          : null,
-                      helperText: textFieldScreenState.showHelpText
-                          ? 'Help Text'
-                          : null,
-                      errorText: textFieldScreenState.showErrorText
-                          ? 'Error Text'
-                          : null,
-                      counterText: textFieldScreenState.showCounterText
-                          ? 'Counter Text'
-                          : null,
-                      prefixText:
-                          textFieldScreenState.showPrefix ? 'Prefix' : null,
-                      suffixText:
-                          textFieldScreenState.showSuffix ? 'Suffix' : null,
-                      prefixIcon: textFieldScreenState.showPrefixIcon
-                          ? const Icon(Icons.person)
-                          : null,
-                      border: const OutlineInputBorder(),
-                    ),
-                  )
-                ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
