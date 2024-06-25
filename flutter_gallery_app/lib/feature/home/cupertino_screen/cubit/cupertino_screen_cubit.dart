@@ -9,6 +9,7 @@ class CupertinoScreenCubit extends Cubit<CupertinoScreenState> {
           sliderValue2: 30,
           switchValue1: false,
           switchValue2: false,
+          tabIndex: 0,
         ));
 
   void updateSlider1(double value) {
@@ -25,5 +26,9 @@ class CupertinoScreenCubit extends Cubit<CupertinoScreenState> {
 
   void updateSwitch2(bool value) {
     emit(state.copyWith(switchValue2: !state.switchValue2));
+  }
+
+  void updateTabIndex(int index) {
+    emit(state.copyWith(tabIndex: index));
   }
 }

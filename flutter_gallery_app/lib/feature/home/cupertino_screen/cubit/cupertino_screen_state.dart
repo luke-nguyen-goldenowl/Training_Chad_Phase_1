@@ -6,12 +6,14 @@ class CupertinoScreenState {
   final double sliderValue2;
   final bool switchValue1;
   final bool switchValue2;
+  final int tabIndex;
 
   CupertinoScreenState({
     required this.sliderValue1,
     required this.sliderValue2,
     required this.switchValue1,
     required this.switchValue2,
+    required this.tabIndex,
   });
 
   CupertinoScreenState copyWith({
@@ -19,12 +21,14 @@ class CupertinoScreenState {
     double? sliderValue2,
     bool? switchValue1,
     bool? switchValue2,
+    int? tabIndex,
   }) {
     return CupertinoScreenState(
       sliderValue1: sliderValue1 ?? this.sliderValue1,
       sliderValue2: sliderValue2 ?? this.sliderValue2,
       switchValue1: switchValue1 ?? this.switchValue1,
       switchValue2: switchValue2 ?? this.switchValue2,
+      tabIndex: tabIndex ?? this.tabIndex,
     );
   }
 }
