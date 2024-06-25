@@ -21,6 +21,6 @@ class ButtonScreenCubit extends Cubit<ButtonScreenState> {
     for (int i = 0; i < state.options.length; i++) {
       i == value ? state.options[i] = true : state.options[i] = false;
     }
-    emit(state.copyWith(options: state.options));
+    emit(state.copyWith(options: [...state.options]));
   }
 }

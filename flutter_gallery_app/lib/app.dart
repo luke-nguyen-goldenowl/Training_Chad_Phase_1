@@ -9,20 +9,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<ButtonScreenCubit>(
-          create: (context) => ButtonScreenCubit(),
+    return MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: const Color(0xff2196F3)),
+          useMaterial3: true,
         ),
-      ],
-      child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme:
-                ColorScheme.fromSeed(seedColor: const Color(0xff2196F3)),
-            useMaterial3: true,
-          ),
-          home: const HomeScreen()),
-    );
+        home: const HomeScreen());
   }
 }
