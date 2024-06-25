@@ -97,12 +97,6 @@ class Constants {
       'subtitle': 'A widget that positions its children relative to its edges',
       'page': Placeholder()
     },
-    {
-      'leading': Icons.branding_watermark_outlined,
-      'title': 'Scaffold - BottomAppBar & ActionFloatButton',
-      'subtitle': 'A widget that positions its children relative to its edges',
-      'page': Placeholder()
-    }
   ];
 
   static const List<Map<String, dynamic>> floatActionButtonPositionData = [
