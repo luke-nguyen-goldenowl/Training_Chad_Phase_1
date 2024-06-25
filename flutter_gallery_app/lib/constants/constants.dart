@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/wrap_screen/wrap_screen.dart';
 import 'package:flutter_gallery_app/feature/home/container_screen/container_screen.dart';
 import 'package:flutter_gallery_app/feature/home/stack_align_screen/stack_align_screen.dart';
 import 'package:flutter_gallery_app/feature/home/row_column_expanded/row_column_expanded.dart';
@@ -74,7 +75,7 @@ class Constants {
       'leading': Icons.videogame_asset,
       'title': 'Wrap & Chip',
       'subtitle': 'Wrap & Chip',
-      'page': Placeholder()
+      'page': WrapScreen()
     },
     {
       'leading': Icons.copy,
@@ -108,6 +109,16 @@ class Constants {
     }
   ];
 
+  static List<Map<String, dynamic>> borderTypeData = [
+    {'title': 'Stadium', 'value': const StadiumBorder()},
+    {'title': 'Circle', 'value': const CircleBorder()},
+    {
+      'title': 'RoundedRectangle',
+      'value': RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
+      )
+    },
+  ];
   static List<Map<String, dynamic>> borderRadiusData = [
     {'title': 'none', 'value': BorderRadius.zero},
     {'title': 'all', 'value': const BorderRadius.all(Radius.circular(50))},

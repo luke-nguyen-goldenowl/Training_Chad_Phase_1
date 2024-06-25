@@ -21,9 +21,13 @@ class OptionItem<T> extends StatelessWidget {
     TextTheme textTheme = Theme.of(context).textTheme;
 
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: title.isEmpty
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: textTheme.labelMedium),
+        title.isEmpty
+            ? Text(title, style: textTheme.labelMedium)
+            : const SizedBox(),
         DropdownButton<T>(
           value: option,
           items: optionData
