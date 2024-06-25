@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gallery_app/feature/home/text_field_screen/text_field_screen.dart';
 import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/bottom_app_bar_screen.dart';
 import 'package:flutter_gallery_app/feature/home/button_screen/button_screen.dart';
 import 'package:flutter_gallery_app/feature/home/wrap_screen/wrap_screen.dart';
@@ -64,7 +65,7 @@ class Constants {
       'leading': Icons.menu,
       'title': 'Text Field',
       'subtitle': 'Textt Field, Text Field Form',
-      'page': Placeholder()
+      'page': TextFieldScreen(),
     },
     {
       'leading': Icons.graphic_eq,
