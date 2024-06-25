@@ -10,6 +10,8 @@ import 'package:flutter_gallery_app/feature/home/row_column_expanded/row_column_
 import 'package:flutter_gallery_app/feature/home/rich_text_view/rich_text_view.dart';
 import 'package:flutter_gallery_app/feature/home/cupertino_screen/cupertino_screen.dart';
 
+import '../feature/home/image_title_app_bar_screen/image_title_app_bar_screen.dart';
+
 class Constants {
   static const List<Map<String, dynamic>> listViewData = [
     {
@@ -98,7 +100,7 @@ class Constants {
       'leading': Icons.image,
       'title': 'Image & Title App Bar',
       'subtitle': 'A widget that positions its children relative to its edges',
-      'page': Placeholder()
+      'page': ImageTitleAppBarScreen()
     },
     {
       'leading': Icons.format_paint,

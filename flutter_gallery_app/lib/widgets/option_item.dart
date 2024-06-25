@@ -25,7 +25,7 @@ class OptionItem<T> extends StatelessWidget {
           ? MainAxisAlignment.start
           : MainAxisAlignment.spaceBetween,
       children: [
-        title.isEmpty
+        title.isNotEmpty
             ? Text(title, style: textTheme.labelMedium)
             : const SizedBox(),
         DropdownButton<T>(
