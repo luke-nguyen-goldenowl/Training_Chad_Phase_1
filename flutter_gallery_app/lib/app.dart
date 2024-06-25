@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_gallery_app/feature/home/home_screen.dart';
 
 class MyApp extends StatelessWidget {
@@ -17,7 +16,22 @@ class MyApp extends StatelessWidget {
             labelMedium: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w500,
-              color: Color.fromARGB(255, 50,50,50),
+              color: Color.fromARGB(255, 50, 50, 50),
+            ),
+            bodySmall: TextStyle(
+              color: Colors.black,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyMedium: TextStyle(
+              color: Colors.black,
+              fontSize: 28,
+              fontWeight: FontWeight.w500,
+            ),
+            bodyLarge: TextStyle(
+              color: Colors.black,
+              fontSize: 36,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),
