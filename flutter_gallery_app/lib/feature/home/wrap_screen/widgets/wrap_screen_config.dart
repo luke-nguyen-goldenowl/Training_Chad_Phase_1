@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gallery_app/constants/constants.dart';
 import 'package:flutter_gallery_app/feature/home/wrap_screen/cubit/wrap_screen_cubit.dart';
@@ -28,32 +29,27 @@ class WrapScreenConfig extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  _buildElevation(),
-                  _buildDeleteIcon(),
-                  _buildSpacing(),
-                ],
-              ),
+            child: Column(
+              children: [
+                _buildElevation(),
+                _buildDeleteIcon(),
+                _buildSpacing(),
+              ],
             ),
           ),
           const SizedBox(
             width: 30,
           ),
           Expanded(
-            child: SingleChildScrollView(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildAvatar(),
-                    _buildBorderRadius(),
-                    _buildRunSpacing(),
-                  ],
-                ),
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildAvatar(),
+                SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: _buildBorderRadius()),
+                _buildRunSpacing(),
+              ],
             ),
           ),
         ],

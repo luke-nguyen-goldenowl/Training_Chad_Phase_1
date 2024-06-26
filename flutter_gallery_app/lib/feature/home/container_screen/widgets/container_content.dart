@@ -9,6 +9,8 @@ class ContainerContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return BlocBuilder<ContainerCubit, ContainerState>(
       buildWhen: (p, c) =>
           p.backgroundOption['value'] != c.backgroundOption['value'] ||
@@ -18,8 +20,8 @@ class ContainerContent extends StatelessWidget {
           p.blendModeOption != c.blendModeOption,
       builder: (context, state) => Center(
         child: Container(
-            width: 300,
-            height: 300,
+            width: screenWidth * 0.7,
+            height: screenWidth * 0.7,
             decoration: BoxDecoration(
               color: state.backgroundOption['value'],
               borderRadius: state.borderRadiusOption['value'],

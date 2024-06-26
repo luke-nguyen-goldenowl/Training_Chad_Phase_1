@@ -24,18 +24,16 @@ class RowColumnExpandedConfig extends StatelessWidget {
           ),
         ],
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            _buildRowColumnOption(context),
-            _buildMainAxisSizeOption(),
-            _buildMainAxisAlignmentOption(),
-            _buildCrossAxisAlignmentOption(),
-            _buildVerticalDirectionOption(),
-            _buildTextDirectionOption(),
-            _buildTextBaselineOption(),
-          ],
-        ),
+      child: Column(
+        children: [
+          _buildRowColumnOption(context),
+          _buildMainAxisSizeOption(),
+          _buildMainAxisAlignmentOption(),
+          _buildCrossAxisAlignmentOption(),
+          _buildVerticalDirectionOption(),
+          _buildTextDirectionOption(),
+          _buildTextBaselineOption(),
+        ],
       ),
     );
   }

@@ -9,6 +9,8 @@ class StackAlignScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return BlocProvider(
       create: (context) => StackAlignCubit(),
       child: Scaffold(
@@ -29,18 +31,18 @@ class StackAlignScreen extends StatelessWidget {
           ),
           centerTitle: false,
         ),
-        body: const Column(
+        body: Column(
           children: [
+            const Expanded(flex: 5, child: StackAlignContent()),
+            const SizedBox(
+              height: 20,
+            ),
             Expanded(
-                flex: 5,
-                child: StackAlignContent()),
-            Expanded(
-                flex: 4,
-                child: StackAlignConfig()),
+                flex: screenWidth < 400 ? 3 : 4,
+                child: const StackAlignConfig()),
           ],
         ),
       ),
     );
   }
 }
-

@@ -9,6 +9,8 @@ class ContainerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return BlocProvider(
       create: (context) => ContainerCubit(),
       child: Scaffold(
@@ -29,15 +31,15 @@ class ContainerScreen extends StatelessWidget {
           ),
           centerTitle: false,
         ),
-        body: const Column(
+        body: Column(
           children: [
-            Expanded(
+            const Expanded(
               flex: 7,
               child: ContainerContent(),
             ),
             Expanded(
-              flex: 4,
-              child: ContainerConfig(),
+              flex: screenWidth < 400 ? 6 : 4,
+              child: const ContainerConfig(),
             )
           ],
         ),

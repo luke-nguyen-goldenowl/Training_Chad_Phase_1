@@ -15,6 +15,8 @@ class RowColumnExpanded extends StatefulWidget {
 class _RowColumnExpandedState extends State<RowColumnExpanded> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return BlocProvider(
       create: (context) => RowColumnExpandedCubit(),
       child: Scaffold(
@@ -35,15 +37,15 @@ class _RowColumnExpandedState extends State<RowColumnExpanded> {
           ),
           centerTitle: false,
         ),
-        body: const Column(
+        body: Column(
           children: [
-            Expanded(
+            const Expanded(
               flex: 5,
               child: RowColumnExpandedContent(),
             ),
             Expanded(
-              flex: 4,
-              child: RowColumnExpandedConfig(),
+              flex: screenWidth < 400 ? 7 : 4,
+              child: const RowColumnExpandedConfig(),
             ),
           ],
         ),

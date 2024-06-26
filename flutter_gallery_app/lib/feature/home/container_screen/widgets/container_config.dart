@@ -23,17 +23,15 @@ class ContainerConfig extends StatelessWidget {
           ),
         ],
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _buildBorderOption(),
-            _buildBorderRadiusOption(),
-            _buildBoxShadowOption(),
-            _buildBackgroundOption(),
-            _buildBlendModeOption(),
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          _buildBorderOption(),
+          _buildBorderRadiusOption(),
+          _buildBoxShadowOption(),
+          _buildBackgroundOption(),
+          _buildBlendModeOption(),
+        ],
       ),
     );
   }
