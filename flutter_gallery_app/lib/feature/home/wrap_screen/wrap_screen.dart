@@ -6,20 +6,16 @@ import 'package:flutter_gallery_app/feature/home/wrap_screen/widgets/wrap_choice
 import 'package:flutter_gallery_app/feature/home/wrap_screen/widgets/wrap_input_chip.dart';
 import 'package:flutter_gallery_app/feature/home/wrap_screen/widgets/wrap_screen_config.dart';
 
-class WrapScreen extends StatefulWidget {
-  const WrapScreen({Key? key}) : super(key: key);
+class WrapScreen extends StatelessWidget {
+  const WrapScreen({super.key});
 
-  @override
-  _WrapScreenState createState() => _WrapScreenState();
-}
 
-class _WrapScreenState extends State<WrapScreen> {
-  List<String> chipChipData = ['Chip', 'ActionChip', 'RawChip'];
-  List<String> choiceChipData = ['Disable', 'Small', 'Large'];
-  List<String> inputChipData = ['Disable', 'IOS', 'Android'];
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+  List<String> chipChipData = ['Chip', 'ActionChip', 'RawChip'];
+  List<String> choiceChipData = ['Disable', 'Small', 'Large'];
+  List<String> inputChipData = ['Disable', 'IOS', 'Android'];
 
     return BlocProvider(
       create: (context) => WrapScreenCubit(),

@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 class SwitchItem extends StatelessWidget {
   const SwitchItem(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.option,
-      required this.onChanged})
-      : super(key: key);
+      required this.onChanged});
   final String title;
   final bool option;
   final Function(bool) onChanged;

@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gallery_app/feature/home/cupertino_screen/cubit/cupertino_screen_cubit.dart';
 import 'package:flutter_gallery_app/feature/home/cupertino_screen/widgets/widget_tab/widgets/cupertino_button_widget.dart';
 import 'package:flutter_gallery_app/feature/home/cupertino_screen/widgets/widget_tab/widgets/cupertino_button_with_background_widget.dart';
 import 'package:flutter_gallery_app/feature/home/cupertino_screen/widgets/widget_tab/widgets/slider_1_widget.dart';
@@ -101,8 +99,8 @@ class WidgetTab extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  FirstSliderWidget(),
-                  SecondSliderWidget(),
+                  firstSliderWidget(),
+                  secondSliderWidget(),
                   const SizedBox(
                     height: 20,
                   ),
@@ -121,7 +119,7 @@ class WidgetTab extends StatelessWidget {
                           applyCupertinoTheme: true,
                           value: false,
                           onChanged: null),
-                      SecondSwitchWidget(),
+                      secondSwitchWidget(),
                     ],
                   ),
                 ],

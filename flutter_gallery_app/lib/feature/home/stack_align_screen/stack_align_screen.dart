@@ -4,14 +4,9 @@ import 'package:flutter_gallery_app/feature/home/stack_align_screen/cubit/stack_
 import 'package:flutter_gallery_app/feature/home/stack_align_screen/widgets/stack_align_config.dart';
 import 'package:flutter_gallery_app/feature/home/stack_align_screen/widgets/stack_align_content.dart';
 
-class StackAlignScreen extends StatefulWidget {
-  const StackAlignScreen({Key? key}) : super(key: key);
+class StackAlignScreen extends StatelessWidget {
+  const StackAlignScreen({super.key});
 
-  @override
-  _StackAlignScreenState createState() => _StackAlignScreenState();
-}
-
-class _StackAlignScreenState extends State<StackAlignScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

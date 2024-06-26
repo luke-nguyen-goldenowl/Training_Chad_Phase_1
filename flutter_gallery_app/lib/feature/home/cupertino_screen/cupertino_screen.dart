@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gallery_app/feature/home/cupertino_screen/cubit/cupertino_screen_cubit.dart';
 import 'package:flutter_gallery_app/feature/home/cupertino_screen/widgets/cupertino_app_bar.dart';
@@ -9,7 +7,7 @@ import 'package:flutter_gallery_app/feature/home/cupertino_screen/widgets/modal_
 import 'package:flutter_gallery_app/feature/home/cupertino_screen/widgets/widget_tab/widget_tab.dart';
 
 class CupertinoScreen extends StatelessWidget {
-  const CupertinoScreen({Key? key}) : super(key: key);
+  const CupertinoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

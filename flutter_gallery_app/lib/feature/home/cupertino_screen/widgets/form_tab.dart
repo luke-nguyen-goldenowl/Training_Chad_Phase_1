@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FormTab extends StatelessWidget {
-  const FormTab({Key? key}) : super(key: key);
+  const FormTab({super.key});
 
   @override
   Widget build(BuildContext context) {

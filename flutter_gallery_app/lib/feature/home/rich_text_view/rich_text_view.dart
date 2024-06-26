@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RichTextView extends StatelessWidget {
-  const RichTextView({Key? key}) : super(key: key);
+  const RichTextView({super.key});
 
   @override
   Widget build(BuildContext context) {

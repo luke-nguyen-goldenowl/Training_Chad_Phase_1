@@ -5,7 +5,7 @@ import 'package:flutter_gallery_app/feature/home/text_field_screen/widgets/text_
 import 'package:flutter_gallery_app/feature/home/text_field_screen/widgets/text_field_widget.dart';
 
 class TextFieldScreen extends StatelessWidget {
-  const TextFieldScreen({Key? key}) : super(key: key);
+  const TextFieldScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -28,24 +28,32 @@ class WrapScreenConfig extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: Column(
-              children: [
-                _buildElevation(),
-                _buildDeleteIcon(),
-                _buildSpacing(),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  _buildElevation(),
+                  _buildDeleteIcon(),
+                  _buildSpacing(),
+                ],
+              ),
             ),
           ),
           const SizedBox(
             width: 30,
           ),
           Expanded(
-            child: Column(
-              children: [
-                _buildAvatar(),
-                _buildBorderRadius(),
-                _buildRunSpacing(),
-              ],
+            child: SingleChildScrollView(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildAvatar(),
+                    _buildBorderRadius(),
+                    _buildRunSpacing(),
+                  ],
+                ),
+              ),
             ),
           ),
         ],

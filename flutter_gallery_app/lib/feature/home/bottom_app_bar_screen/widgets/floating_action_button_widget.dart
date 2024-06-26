@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/cubit/bottom_app_bar_screen_cubit.dart';
 
 class FloatingActionButtonWidget extends StatelessWidget {
-  const FloatingActionButtonWidget({Key? key}) : super(key: key);
+  const FloatingActionButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

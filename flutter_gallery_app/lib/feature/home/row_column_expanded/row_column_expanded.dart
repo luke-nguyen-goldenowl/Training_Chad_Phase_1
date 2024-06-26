@@ -8,6 +8,7 @@ class RowColumnExpanded extends StatefulWidget {
   const RowColumnExpanded({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _RowColumnExpandedState createState() => _RowColumnExpandedState();
 }
 

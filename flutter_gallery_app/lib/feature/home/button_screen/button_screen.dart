@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gallery_app/feature/home/button_screen/cubit/button_screen_cubit.dart';
@@ -18,7 +17,7 @@ import 'package:flutter_gallery_app/feature/home/button_screen/widgets/text_butt
 import 'package:flutter_gallery_app/feature/home/button_screen/widgets/text_button_widget.dart';
 
 class ButtonScreen extends StatelessWidget {
-  const ButtonScreen({Key? key}) : super(key: key);
+  const ButtonScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,31 +64,33 @@ class ButtonScreen extends StatelessWidget {
           ),
           body: const Padding(
             padding: EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DropdownButtonWidget(),
-                SizedBox(height: 10),
-                DropdownFormFieldButton(),
-                BlackButtonWidget(),
-                SizedBox(height: 5),
-                ElevalatedButtonWidget(),
-                ElevalatedButtonIconWidget(),
-                TextButtonWidget(),
-                TextButtonIconWidget(),
-                OutlinedButtonWidget(),
-                OutlinedButtonIconWidget(),
-                SizedBox(height: 15),
-                CupertinoButtonWidget(),
-                SizedBox(height: 20),
-                MaterialButtonWidget(),
-                SizedBox(height: 10),
-                RawMaterialButtonWidget(),
-                SizedBox(height: 20),
-                GroupButtonWidget(),
-                SizedBox(height: 40),
-                IconButtonWidget(),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DropdownButtonWidget(),
+                  SizedBox(height: 10),
+                  DropdownFormFieldButton(),
+                  BlackButtonWidget(),
+                  SizedBox(height: 5),
+                  ElevalatedButtonWidget(),
+                  ElevalatedButtonIconWidget(),
+                  TextButtonWidget(),
+                  TextButtonIconWidget(),
+                  OutlinedButtonWidget(),
+                  OutlinedButtonIconWidget(),
+                  SizedBox(height: 15),
+                  CupertinoButtonWidget(),
+                  SizedBox(height: 20),
+                  MaterialButtonWidget(),
+                  SizedBox(height: 10),
+                  RawMaterialButtonWidget(),
+                  SizedBox(height: 20),
+                  GroupButtonWidget(),
+                  SizedBox(height: 40),
+                  IconButtonWidget(),
+                ],
+              ),
             ),
           )),
     );

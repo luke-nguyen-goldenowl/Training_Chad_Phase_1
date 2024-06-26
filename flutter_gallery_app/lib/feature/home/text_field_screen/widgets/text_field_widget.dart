@@ -32,43 +32,45 @@ class TextFieldWidget extends StatelessWidget {
             p.showPrefix != c.showPrefix ||
             p.showPrefixIcon != c.showPrefixIcon ||
             p.showSuffix != c.showSuffix,
-        builder: (context, state) => Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: state.showHintText ? 'Hint Text' : null,
-                labelText: state.showLabelText ? 'Label Text' : null,
-                helperText: state.showHelpText ? 'Help Text' : null,
-                errorText: state.showErrorText ? 'Error Text' : null,
-                counterText: state.showCounterText ? 'Counter Text' : null,
-                prefixText: state.showPrefix ? 'Prefix' : null,
-                suffixText: state.showSuffix ? 'Suffix' : null,
-                prefixIcon:
-                    state.showPrefixIcon ? const Icon(Icons.person) : null,
-                errorStyle: const TextStyle(fontSize: 14),
-                counterStyle: const TextStyle(fontSize: 14),
-                helperStyle: const TextStyle(fontSize: 14),
+        builder: (context, state) => SingleChildScrollView(
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  hintText: state.showHintText ? 'Hint Text' : null,
+                  labelText: state.showLabelText ? 'Label Text' : null,
+                  helperText: state.showHelpText ? 'Help Text' : null,
+                  errorText: state.showErrorText ? 'Error Text' : null,
+                  counterText: state.showCounterText ? 'Counter Text' : null,
+                  prefixText: state.showPrefix ? 'Prefix' : null,
+                  suffixText: state.showSuffix ? 'Suffix' : null,
+                  prefixIcon:
+                      state.showPrefixIcon ? const Icon(Icons.person) : null,
+                  errorStyle: const TextStyle(fontSize: 14),
+                  counterStyle: const TextStyle(fontSize: 14),
+                  helperStyle: const TextStyle(fontSize: 14),
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              decoration: InputDecoration(
-                hintText: state.showHintText ? 'Hint Text' : null,
-                labelText: state.showLabelText ? 'Label Text' : null,
-                helperText: state.showHelpText ? 'Help Text' : null,
-                errorText: state.showErrorText ? 'Error Text' : null,
-                counterText: state.showCounterText ? 'Counter Text' : null,
-                prefixText: state.showPrefix ? 'Prefix' : null,
-                suffixText: state.showSuffix ? 'Suffix' : null,
-                prefixIcon:
-                    state.showPrefixIcon ? const Icon(Icons.person) : null,
-                border: const OutlineInputBorder(),
-                errorStyle: const TextStyle(fontSize: 14),
-                counterStyle: const TextStyle(fontSize: 14),
-                helperStyle: const TextStyle(fontSize: 14),
-              ),
-            )
-          ],
+              const SizedBox(height: 20),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: state.showHintText ? 'Hint Text' : null,
+                  labelText: state.showLabelText ? 'Label Text' : null,
+                  helperText: state.showHelpText ? 'Help Text' : null,
+                  errorText: state.showErrorText ? 'Error Text' : null,
+                  counterText: state.showCounterText ? 'Counter Text' : null,
+                  prefixText: state.showPrefix ? 'Prefix' : null,
+                  suffixText: state.showSuffix ? 'Suffix' : null,
+                  prefixIcon:
+                      state.showPrefixIcon ? const Icon(Icons.person) : null,
+                  border: const OutlineInputBorder(),
+                  errorStyle: const TextStyle(fontSize: 14),
+                  counterStyle: const TextStyle(fontSize: 14),
+                  helperStyle: const TextStyle(fontSize: 14),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
