@@ -10,7 +10,7 @@ class ImageTitleAppBarScreen extends StatelessWidget {
       child: Material(
         child: CustomScrollView(
           slivers: [
-            SliverAppBar(
+            const SliverAppBar(
               elevation: 0,
               expandedHeight: 200,
               floating: false,
