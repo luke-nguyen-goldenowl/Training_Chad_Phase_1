@@ -36,23 +36,23 @@ class StackAlignContent extends StatelessWidget {
                 height: 200,
                 color: const Color.fromARGB(255, 90, 227, 94),
               ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Container(
-                  width: 150,
-                  height: 150,
-                  color: Colors.orange,
-                ),
-              ),
-              // Positioned(
-              //   bottom: -50,
-              //   right: -50,
+              // Align(
+              //   alignment: Alignment.bottomRight,
               //   child: Container(
               //     width: 150,
               //     height: 150,
               //     color: Colors.orange,
               //   ),
               // ),
+              Positioned(
+                bottom: -50,
+                right: -50,
+                child: Container(
+                  width: 150,
+                  height: 150,
+                  color: Colors.orange,
+                ),
+              ),
             ],
           ),
         ),

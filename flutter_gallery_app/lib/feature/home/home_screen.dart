@@ -15,7 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
         title: const Text(
           'My Widget',
@@ -35,8 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: ListView.builder(
+      body: ListView.separated(
+        padding: const EdgeInsets.symmetric(vertical: 20),
         itemCount: listViewData.length,
+        separatorBuilder: (context, index) => const Divider(
+          color: Colors.grey,
+          height: 1,
+          indent: 75,
+        ),
         itemBuilder: (context, index) {
           return ListTileItem(
             itemData: listViewData[index],

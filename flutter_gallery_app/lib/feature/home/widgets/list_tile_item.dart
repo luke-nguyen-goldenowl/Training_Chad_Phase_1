@@ -23,12 +23,6 @@ class ListTileItem extends StatelessWidget {
         ),
         subtitle: Container(
           padding: const EdgeInsets.only(bottom: 10, right: 10),
-          decoration: const BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                  color: Color.fromARGB(255, 220, 220, 220), width: 1.0),
-            ),
-          ),
           child: Text(
             itemData['subtitle'],
             style: const TextStyle(fontSize: 14, height: 1.2),

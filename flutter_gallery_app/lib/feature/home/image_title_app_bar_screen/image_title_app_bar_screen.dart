@@ -10,9 +10,14 @@ class ImageTitleAppBarScreen extends StatelessWidget {
       child: Material(
         child: CustomScrollView(
           slivers: [
-            SliverPersistentHeader(
-              delegate: CustomAppBar(expandedHeight: 200),
+            SliverAppBar(
+              elevation: 0,
+              expandedHeight: 200,
+              floating: false,
               pinned: true,
+              snap: false,
+              stretch: true,
+              flexibleSpace: CustomAppBar(expandedHeight: 200,),
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
@@ -27,5 +32,3 @@ class ImageTitleAppBarScreen extends StatelessWidget {
     );
   }
 }
-
-
