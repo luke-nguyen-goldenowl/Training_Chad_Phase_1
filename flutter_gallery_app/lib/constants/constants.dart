@@ -9,6 +9,7 @@ import 'package:flutter_gallery_app/feature/home/stack_align_screen/stack_align_
 import 'package:flutter_gallery_app/feature/home/row_column_expanded/row_column_expanded.dart';
 import 'package:flutter_gallery_app/feature/home/rich_text_view/rich_text_view.dart';
 import 'package:flutter_gallery_app/feature/home/cupertino_screen/cupertino_screen.dart';
+import 'package:flutter_gallery_app/widgets/placeholder_screen.dart';
 
 import '../feature/home/image_title_app_bar_screen/image_title_app_bar_screen.dart';
 
@@ -44,26 +45,26 @@ class Constants {
       'leading': Icons.list,
       'title': 'List',
       'subtitle': 'Scrolling list layout',
-      'page': Placeholder()
+      'page': PlaceholderScreen()
     },
     {
       'leading': Icons.credit_card,
       'title': 'Card',
       'subtitle': 'Cards with rounded corners and decoration',
-      'page': Placeholder()
+      'page': PlaceholderScreen()
     },
     {
       'leading': Icons.list,
       'title': 'List Title',
       'subtitle':
           'A single fixed-height row that typically contains some text as well as a leading or trailing icon',
-      'page': Placeholder()
+      'page': PlaceholderScreen()
     },
     {
       'leading': Icons.tab_unselected,
       'title': 'Alert',
       'subtitle': 'Alerts, SnackBar & Tooltip',
-      'page': Placeholder()
+      'page': PlaceholderScreen()
     },
     {
       'leading': Icons.menu,

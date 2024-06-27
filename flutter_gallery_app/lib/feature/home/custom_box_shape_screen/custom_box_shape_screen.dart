@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gallery_app/feature/home/custom_box_shape_screen/widgets/custom_painter_item.dart';
 
 class CustomBoxShapeScreen extends StatelessWidget {
-  const CustomBoxShapeScreen({Key? key}) : super(key: key);
+  const CustomBoxShapeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

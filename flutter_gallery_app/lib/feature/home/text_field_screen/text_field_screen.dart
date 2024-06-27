@@ -5,10 +5,12 @@ import 'package:flutter_gallery_app/feature/home/text_field_screen/widgets/text_
 import 'package:flutter_gallery_app/feature/home/text_field_screen/widgets/text_field_widget.dart';
 
 class TextFieldScreen extends StatelessWidget {
-  const TextFieldScreen({Key? key}) : super(key: key);
+  const TextFieldScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    
     return BlocProvider(
       create: (context) => TextFieldScreenCubit(),
       child: Scaffold(
@@ -29,15 +31,15 @@ class TextFieldScreen extends StatelessWidget {
           ),
           centerTitle: false,
         ),
-        body: const Column(
+        body: Column(
           children: [
-            Expanded(
+            const Expanded(
               flex: 7,
               child: TextFieldConfigWidget(),
             ),
             Expanded(
-              flex: 3,
-              child: TextFieldWidget(),
+              flex: screenWidth < 400 ? 5 : 3,
+              child: const TextFieldWidget(),
             ),
           ],
         ),
@@ -45,5 +47,3 @@ class TextFieldScreen extends StatelessWidget {
     );
   }
 }
-
-

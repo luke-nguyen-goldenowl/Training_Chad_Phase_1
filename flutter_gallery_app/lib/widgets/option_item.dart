@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 class OptionItem<T> extends StatelessWidget {
   const OptionItem(
-      {Key? key,
+      {super.key,
       required this.option,
       required this.optionData,
       required this.onChanged,
       required this.title,
-      required this.getName})
-      : super(key: key);
+      required this.getName});
 
   final String title;
   final T option;

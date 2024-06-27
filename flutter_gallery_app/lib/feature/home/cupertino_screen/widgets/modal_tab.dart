@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ModalTab extends StatelessWidget {
-  const ModalTab({Key? key}) : super(key: key);
+  const ModalTab({super.key});
 
   @override
   Widget build(BuildContext context) {

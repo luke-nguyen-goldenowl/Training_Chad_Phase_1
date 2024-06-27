@@ -6,7 +6,7 @@ import 'package:flutter_gallery_app/widgets/option_item.dart';
 import 'package:flutter_gallery_app/widgets/switch_item.dart';
 
 class ContainerConfig extends StatelessWidget {
-  const ContainerConfig({Key? key}) : super(key: key);
+  const ContainerConfig({super.key});
 
   @override
   Widget build(BuildContext context) {

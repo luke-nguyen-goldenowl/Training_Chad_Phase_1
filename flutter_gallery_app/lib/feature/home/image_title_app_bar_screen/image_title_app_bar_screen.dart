@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gallery_app/feature/home/image_title_app_bar_screen/widgets/custom_app_bar.dart';
 
 class ImageTitleAppBarScreen extends StatelessWidget {
-  const ImageTitleAppBarScreen({Key? key}) : super(key: key);
+  const ImageTitleAppBarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,9 +10,14 @@ class ImageTitleAppBarScreen extends StatelessWidget {
       child: Material(
         child: CustomScrollView(
           slivers: [
-            SliverPersistentHeader(
-              delegate: CustomAppBar(expandedHeight: 200),
+            const SliverAppBar(
+              elevation: 0,
+              expandedHeight: 200,
+              floating: false,
               pinned: true,
+              snap: false,
+              stretch: true,
+              flexibleSpace: CustomAppBar(expandedHeight: 200,),
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
@@ -27,5 +32,3 @@ class ImageTitleAppBarScreen extends StatelessWidget {
     );
   }
 }
-
-

@@ -6,7 +6,7 @@ import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/widgets/b
 import 'package:flutter_gallery_app/feature/home/bottom_app_bar_screen/widgets/floating_action_button_widget.dart';
 
 class BottomAppBarScreen extends StatelessWidget {
-  const BottomAppBarScreen({Key? key}) : super(key: key);
+  const BottomAppBarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

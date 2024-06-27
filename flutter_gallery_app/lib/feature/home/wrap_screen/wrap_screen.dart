@@ -6,20 +6,16 @@ import 'package:flutter_gallery_app/feature/home/wrap_screen/widgets/wrap_choice
 import 'package:flutter_gallery_app/feature/home/wrap_screen/widgets/wrap_input_chip.dart';
 import 'package:flutter_gallery_app/feature/home/wrap_screen/widgets/wrap_screen_config.dart';
 
-class WrapScreen extends StatefulWidget {
-  const WrapScreen({Key? key}) : super(key: key);
+class WrapScreen extends StatelessWidget {
+  const WrapScreen({super.key});
 
-  @override
-  _WrapScreenState createState() => _WrapScreenState();
-}
-
-class _WrapScreenState extends State<WrapScreen> {
-  List<String> chipChipData = ['Chip', 'ActionChip', 'RawChip'];
-  List<String> choiceChipData = ['Disable', 'Small', 'Large'];
-  List<String> inputChipData = ['Disable', 'IOS', 'Android'];
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+    List<String> chipChipData = ['Chip', 'ActionChip', 'RawChip'];
+    List<String> choiceChipData = ['Disable', 'Small', 'Large'];
+    List<String> inputChipData = ['Disable', 'IOS', 'Android'];
+    double screenWidth = MediaQuery.of(context).size.width;
 
     return BlocProvider(
       create: (context) => WrapScreenCubit(),
@@ -45,30 +41,33 @@ class _WrapScreenState extends State<WrapScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-                flex: 3,
+                flex: 7,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      WrapChipChip(chipChipData: chipChipData),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      WrapChoiceChip(choiceChipData: choiceChipData),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      WrapInputChip(inputChipData: inputChipData, textTheme: textTheme),
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        WrapChipChip(chipChipData: chipChipData),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        WrapChoiceChip(choiceChipData: choiceChipData),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        WrapInputChip(
+                            inputChipData: inputChipData, textTheme: textTheme),
+                      ],
+                    ),
                   ),
                 )),
-            const Expanded(
-              flex: 1,
-              child: WrapScreenConfig(),
+            Expanded(
+              flex: screenWidth < 400 ? 3 : 2,
+              child: const WrapScreenConfig(),
             ),
           ],
         ),
@@ -76,4 +75,3 @@ class _WrapScreenState extends State<WrapScreen> {
     );
   }
 }
-

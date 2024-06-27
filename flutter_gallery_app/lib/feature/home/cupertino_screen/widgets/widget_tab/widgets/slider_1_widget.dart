@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gallery_app/feature/home/cupertino_screen/cubit/cupertino_screen_cubit.dart';
 
-  Widget FirstSliderWidget() {
+Widget firstSliderWidget() {
     return BlocBuilder<CupertinoScreenCubit, CupertinoScreenState>(
       buildWhen: (previous, current) =>
           previous.sliderValue1 != current.sliderValue1,

@@ -4,16 +4,13 @@ import 'package:flutter_gallery_app/feature/home/stack_align_screen/cubit/stack_
 import 'package:flutter_gallery_app/feature/home/stack_align_screen/widgets/stack_align_config.dart';
 import 'package:flutter_gallery_app/feature/home/stack_align_screen/widgets/stack_align_content.dart';
 
-class StackAlignScreen extends StatefulWidget {
-  const StackAlignScreen({Key? key}) : super(key: key);
+class StackAlignScreen extends StatelessWidget {
+  const StackAlignScreen({super.key});
 
-  @override
-  _StackAlignScreenState createState() => _StackAlignScreenState();
-}
-
-class _StackAlignScreenState extends State<StackAlignScreen> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return BlocProvider(
       create: (context) => StackAlignCubit(),
       child: Scaffold(
@@ -34,18 +31,18 @@ class _StackAlignScreenState extends State<StackAlignScreen> {
           ),
           centerTitle: false,
         ),
-        body: const Column(
+        body: Column(
           children: [
+            const Expanded(flex: 5, child: StackAlignContent()),
+            const SizedBox(
+              height: 20,
+            ),
             Expanded(
-                flex: 5,
-                child: StackAlignContent()),
-            Expanded(
-                flex: 4,
-                child: StackAlignConfig()),
+                flex: screenWidth < 400 ? 3 : 4,
+                child: const StackAlignConfig()),
           ],
         ),
       ),
     );
   }
 }
-
