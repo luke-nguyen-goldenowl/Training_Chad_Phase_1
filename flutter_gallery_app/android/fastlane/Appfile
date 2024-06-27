@@ -1,0 +1,2 @@
+json_key_file("/Users/dinhnguyenduykhang/Downloads/astute-office-427706-f2-4e0a89270cdf.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name("com.chad.flutter_gallery_app") # e.g. com.krausefx.app
