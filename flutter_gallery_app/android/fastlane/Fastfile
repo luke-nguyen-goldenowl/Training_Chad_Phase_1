@@ -34,7 +34,7 @@ platform :android do
   desc "Deploy a new version to the Google Play"
   lane :deploy do
     gradle(task: "clean assembleRelease")
-    sh "flutter build appbundle"
+    sh "flutter build appbundle "
     upload_to_play_store(
       track: 'internal',
       aab: aabPath,
