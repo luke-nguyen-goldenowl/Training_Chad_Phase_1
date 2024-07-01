@@ -78,6 +78,7 @@ jobs:
       #   run: fastlane distribute
 
       - name: build release
+        working-directory: flutter_gallery_app/android
         run: fastlane deploy
 
       # - name: Upload Artifact to Firebase App Distribution
